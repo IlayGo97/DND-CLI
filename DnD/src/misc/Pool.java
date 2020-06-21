@@ -6,8 +6,11 @@ public class Pool {
 	int max;
 	
 	public Boolean Add(int amount) {
-		current=Math.max(current+amount, max);
-		return true;
+		int oldcur = current;
+		current=Math.min(current+amount, max);
+		if(oldcur + amount> max)
+			return true; //if leveled 
+		else return false;
 	}
 	
 	public Boolean IncreaseMax(int amount) {
@@ -16,8 +19,11 @@ public class Pool {
 	}
 	
 	public Boolean ReduceCurr(int amount) {
-		current=Math.min(current-amount, 0);
-		return true;
+		int oldcur = current;
+		current=Math.max(current-amount, 0);
+		if(oldcur-amount<=0)
+			return true; //if died
+		else return false;
 	}
 	
 	public Boolean Fill() {
