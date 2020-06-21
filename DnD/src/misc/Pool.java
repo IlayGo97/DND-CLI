@@ -30,4 +30,8 @@ public class Pool {
 		current=max;
 		return true;
 	}
+	public void Empty()
+	{
+		current = 0;
+	}
 }
