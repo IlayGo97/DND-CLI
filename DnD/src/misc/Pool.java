@@ -8,8 +8,8 @@ public class Pool {
 	public Boolean Add(int amount) {
 		int oldcur = current;
 		current=Math.min(current+amount, max);
-		if(oldcur + amount> max)
-			return true; //if leveled 
+		if(oldcur+amount>max)
+			return true; // if leveled 
 		else return false;
 	}
 	
@@ -22,7 +22,7 @@ public class Pool {
 		int oldcur = current;
 		current=Math.max(current-amount, 0);
 		if(oldcur-amount<=0)
-			return true; //if died
+			return true; // if died
 		else return false;
 	}
 	
@@ -30,8 +30,9 @@ public class Pool {
 		current=max;
 		return true;
 	}
+	
 	public void Empty()
 	{
-		current = 0;
+		current=0;
 	}
 }

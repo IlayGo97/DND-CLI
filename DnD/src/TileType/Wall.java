@@ -8,6 +8,7 @@ public class Wall extends Tile {
 		y = _y;
 		Char = '#';
 	}
+	
 	@Override
 	public void Visit(Unit T) {
 		//do nothing

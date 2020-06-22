@@ -8,6 +8,7 @@ public class Empty extends Tile {
 		y= _y;
 		Char= '.';
 	}
+	
 	@Override
 	public void Visit(Unit T) {
 		// TODO swap places
@@ -17,18 +18,15 @@ public class Empty extends Tile {
 	@Override
 	public void Visit(Wall W) {
 		//do nothing
-		
 	}
 
 	@Override
 	public void Visit(Empty E) {
 		//do nothing
-		
 	}
+	
 	@Override
 	public String toString() {
 		return Character.toString(Char);
 	}
-	
-	
 }
