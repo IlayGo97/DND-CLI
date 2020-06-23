@@ -16,7 +16,9 @@ public abstract class player extends Unit
 	{
 		u.Visit(this);
 	}
+	
 	protected abstract void ClassLevelup();
+	
 	public void Levelup()
 	{
 		experience.Empty();
@@ -27,11 +29,13 @@ public abstract class player extends Unit
 		this.defensePoints=defensePoints+PlayerLevel;
 		ClassLevelup();
 	}
+	
 	@Override
 	public void Visit(Enemy e)
 	{
 		//TODO FIGHT
 	}
+	
 	@Override
 	public void Visit(Empty e)
 	{
