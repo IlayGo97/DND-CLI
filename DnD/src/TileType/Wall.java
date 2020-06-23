@@ -9,20 +9,9 @@ public class Wall extends Tile {
 		Char = '#';
 	}
 	
-	@Override
-	public void Visit(Unit T) {
-		//do nothing
-		return;
-	}
 
 	@Override
-	public void Visit(Wall W) {
-		//do nothing
-		return;
-	}
-
-	@Override
-	public void Visit(Empty E) {
+	public void Accept(Unit u) {
 		//do nothing
 		return;
 	}	

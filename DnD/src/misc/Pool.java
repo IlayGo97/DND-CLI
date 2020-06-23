@@ -2,8 +2,8 @@ package misc;
 
 public class Pool {
 	
-	int current;
-	int max;
+	public int current;
+	public int max;
 	
 	public Boolean Add(int amount) {
 		int oldcur = current;

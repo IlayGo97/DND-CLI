@@ -9,24 +9,15 @@ public class Empty extends Tile {
 		Char= '.';
 	}
 	
-	@Override
-	public void Visit(Unit T) {
-		// TODO swap places
-		
-	}
 
-	@Override
-	public void Visit(Wall W) {
-		//do nothing
-	}
-
-	@Override
-	public void Visit(Empty E) {
-		//do nothing
-	}
-	
 	@Override
 	public String toString() {
 		return Character.toString(Char);
+	}
+
+	@Override
+	public void Accept(Unit u) {
+		// TODO Swap Places
+		
 	}
 }

@@ -10,16 +10,23 @@ public abstract class player extends Unit
 	
 	Pool experience;
 	int PlayerLevel;
-	
-	public void Accept(player p)
-	{
-		//do nothing will never happen
-	}
-	
 	public  void Visit(Empty E)
 	{
 		//TODO swap places function
 	}
-	
-	protected abstract void Levelup();
+	public void Visit(Enemy e)
+	{
+		//FIGHT
+	}
+	protected abstract void ClassLevelup();
+	public void Levelup()
+	{
+		experience.Empty();
+		PlayerLevel++;
+		healthPool.IncreaseMax(healthPool.max+10*PlayerLevel);
+		healthPool.Fill();
+		this.attackPoints=attackPoints+4*PlayerLevel;
+		this.defensePoints=defensePoints+PlayerLevel;
+		ClassLevelup();
+	}
 }
