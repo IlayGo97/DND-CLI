@@ -10,13 +10,11 @@ public abstract class player extends Unit
 	
 	Pool experience;
 	int PlayerLevel;
-	public  void Visit(Empty E)
+
+	@Override
+	public void Accept(Unit u)
 	{
-		//TODO swap places function
-	}
-	public void Visit(Enemy e)
-	{
-		//FIGHT
+		u.Visit(this);
 	}
 	protected abstract void ClassLevelup();
 	public void Levelup()
@@ -28,5 +26,15 @@ public abstract class player extends Unit
 		this.attackPoints=attackPoints+4*PlayerLevel;
 		this.defensePoints=defensePoints+PlayerLevel;
 		ClassLevelup();
+	}
+	@Override
+	public void Visit(Enemy e)
+	{
+		//TODO FIGHT
+	}
+	@Override
+	public void Visit(Empty e)
+	{
+		//TODO Swap places
 	}
 }

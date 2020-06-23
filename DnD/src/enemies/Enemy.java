@@ -21,7 +21,6 @@ public class Enemy extends Unit
 		return;
 	}
 
-
 	@Override
 	public void Accept(Unit u) {
 		u.Accept(this);
