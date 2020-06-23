@@ -1,6 +1,6 @@
 package enemies;
 
 public class Monster  {
-	public int visionRange;
 	
+	public int visionRange;
 }
