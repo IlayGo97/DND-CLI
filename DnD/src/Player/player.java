@@ -1,5 +1,6 @@
 package Player;
 import TileType.Empty;
+import TileType.Tile;
 import TileType.Unit;
 import TileType.Wall;
 import enemies.Enemy;
@@ -29,7 +30,10 @@ public abstract class player extends Unit
 		this.defensePoints=defensePoints+PlayerLevel;
 		ClassLevelup();
 	}
-	
+	public void Interact(Tile t)
+	{
+		t.Accept(this);
+	}
 	@Override
 	public void Visit(Enemy e)
 	{
