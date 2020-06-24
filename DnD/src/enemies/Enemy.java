@@ -8,5 +8,8 @@ import TileType.Wall;
 public abstract class Enemy extends Unit
 {
 	public int experienceValue;
-
+	public void Interact(Tile t)
+	{
+		t.Accept(this);
+	}
 }
