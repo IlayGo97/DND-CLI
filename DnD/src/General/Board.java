@@ -1,5 +1,6 @@
 package General;
 import Player.player;
+import TileType.Empty;
 import TileType.Tile;
 import TileType.Unit;
 
@@ -66,5 +67,9 @@ public class Board {
 		t1.y += t.y;
 		t.y = t1.y - t.y;
 		t1.y = t1.y - t.y;
+	}
+	public void Kill(Unit t)
+	{
+		Board[t.x][t.y]= new Empty(t.x,t.y);
 	}
 }

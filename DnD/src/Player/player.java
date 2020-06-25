@@ -39,14 +39,15 @@ public abstract class player extends Unit
 	@Override
 	public void Visit(Enemy e)
 	{
-		int attackroll = (int)Math.random()*attackPoints;
-		int defenseroll = (int)Math.random()*e.defensePoints;
+		eh.HandleEvent(this.name+" engaged in combat with "+e.name);
+		int attackroll = this.RollAttack();
+		int defenseroll = e.RollDefense();
 		int Damage = Math.max(0, attackroll-defenseroll);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
 			if(this.experience.Add(e.experienceValue))
 				this.Levelup();
-			//TODO kill enemy
+			e.KillThis();
 		}
 		
 	}
