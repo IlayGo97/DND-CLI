@@ -1,41 +1,57 @@
 package enemies;
-
 import Player.player;
 import TileType.Empty;
-import TileType.Unit;
 
 public class Trap extends Enemy {
 	
-	int visibilityTime;
-	int invisibilityTime;
-	int ticksCount;
-	Boolean visible;
+	private int visibilityTime;
+	private int invisibilityTime;
+	private int ticksCount;
+	private Boolean visible;
 	
-	public Trap(int visibilityTime, int invisibilityTime) {
-		this.visibilityTime = visibilityTime;
-		this.invisibilityTime = invisibilityTime;
+	public Trap(int x, int y,int def, int att, int maxHP, int exp, String _name, int VisTime, int InvisTime, char Chara)
+	{
 		ticksCount = 0;
+		visibilityTime = VisTime;
+		invisibilityTime = InvisTime;
+		this.defensePoints = def;
+		this.attackPoints = att;
 		visible = true;
+		this.experienceValue = exp;
+		this.Char = Chara;
+		this.x = x;
+		this.y = y;
+		this.name = _name;
 	}
-
+	
 	@Override
 	public void Update() {
-		visible = ticksCount < visibilityTime;
-		if (ticksCount == visibilityTime + invisibilityTime)
+		ticksCount++;
+		if(visible & ticksCount>= visibilityTime)
+		{
+			visible = false;
 			ticksCount = 0;
-		else
-			ticksCount++;
-		if(currBoard.Range(this, currBoard.getPlayer())<=2)
-			Interact(currBoard.getPlayer());
+		}
+		if(!visible & ticksCount>= invisibilityTime)
+		{
+			visible = true;
+			ticksCount = 0;
+		}
+		if(currBoard.Range(this, currBoard.getPlayer())<2)
+			this.Visit(currBoard.getPlayer());
 	}
-
+	
 	@Override
-	public void Visit(Empty e) {
-		//do nothing
+	public String toString() {
+		if(visible)
+			return Character.toString(Char);
+		else return Character.toString('.');
 	}
-
+	
 	@Override
-	public void Accept(Unit u) {
-		// TODO Auto-generated method stub
+	public String Describe() {
+		String output;
+		output = this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Experience Value: "+this.experienceValue;
+		return output;
 	}
 }

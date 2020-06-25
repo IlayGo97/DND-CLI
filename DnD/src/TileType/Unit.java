@@ -13,6 +13,7 @@ public abstract class Unit extends Tile implements Observer, EventCreator {
 	public Pool healthPool;
 	public int attackPoints;
 	public int defensePoints;
+	public abstract String Describe();
 	public abstract void Visit(Empty e);
 	public void Visit(Wall e)
 	{

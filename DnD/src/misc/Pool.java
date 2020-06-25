@@ -5,6 +5,11 @@ public class Pool {
 	public int current;
 	public int max;
 	
+	public Pool(int max)
+	{
+		this.max = max;
+		this.Fill();
+	}
 	public Boolean Add(int amount) {
 		int oldcur = current;
 		current=Math.min(current+amount, max);

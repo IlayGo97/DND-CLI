@@ -1,11 +1,25 @@
 package enemies;
-
+import Player.player;
 import TileType.Empty;
 import TileType.Unit;
+import misc.Pool;
 
 public class Monster extends Enemy  {
 	
 	public int visionRange;
+	
+	public Monster (int x, int y,int vision,int exp,int maxhp, String name, char Character ,int def, int att)
+	{
+		this.defensePoints= def;
+		this.attackPoints = att;
+		this.experienceValue= exp;
+		this.x =x;
+		this.y= y;
+		this.name = name;
+		this.Char = Character;
+		this.visionRange = vision;
+		this.healthPool = new Pool(maxhp);
+	}
 	
 	public void Update()
 	{
@@ -41,19 +55,10 @@ public class Monster extends Enemy  {
 				Interact(currBoard.GetTile(this.x, this.y-1));
 		}
 	}
-
-	@Override
-	public void Visit(Empty e) {
-		currBoard.SwapPlaces(this, e);
-	}
 	
 	@Override
-	public void Visit(Enemy e) {
-		//do nothing
-	}
-	
-	@Override
-	public void Accept(Unit u) {
+	public String Describe() {
 		// TODO Auto-generated method stub
+		return null;
 	}
 }
