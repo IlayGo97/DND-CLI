@@ -16,6 +16,7 @@ public abstract class Unit extends Tile implements Observer {
 		//do nothing
 		return;
 	}
+	public abstract void Interact(Tile t);
 	public abstract void Visit(player p);
 	public abstract void Visit(Enemy e);
 	public abstract void Accept(Unit u);
