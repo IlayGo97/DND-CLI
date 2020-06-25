@@ -8,7 +8,7 @@ import enemies.Enemy;
 import misc.Pool;
 
 public abstract class Unit extends Tile implements Observer, EventCreator {
-	protected Board currBoard= Board.GetInstance();
+	protected Board currBoard = Board.GetInstance();
 	public String name;
 	public Pool healthPool;
 	public int attackPoints;

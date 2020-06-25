@@ -9,25 +9,26 @@ public class Trap extends Enemy {
 	private int ticksCount;
 	private Boolean visible;
 	
-	public Trap(int x, int y,int def, int att, int maxHP, int exp, String _name, int VisTime, int InvisTime, char Chara)
+	public Trap(int x, int y, int att, int def, int maxHP, int exp, String _name, int VisTime, int InvisTime, char Chara)
 	{
 		ticksCount = 0;
+		visible = true;
+		this.x = x;
+		this.y = y;
 		visibilityTime = VisTime;
 		invisibilityTime = InvisTime;
 		this.defensePoints = def;
 		this.attackPoints = att;
-		visible = true;
 		this.experienceValue = exp;
 		this.Char = Chara;
-		this.x = x;
-		this.y = y;
 		this.name = _name;
+		// maxHP?
 	}
 	
 	@Override
 	public void Update() {
 		ticksCount++;
-		if(visible & ticksCount>= visibilityTime)
+		if(visible & ticksCount >= visibilityTime)
 		{
 			visible = false;
 			ticksCount = 0;
@@ -37,7 +38,7 @@ public class Trap extends Enemy {
 			visible = true;
 			ticksCount = 0;
 		}
-		if(currBoard.Range(this, currBoard.getPlayer())<2)
+		if(currBoard.Range(this, currBoard.getPlayer())<=2)
 			this.Visit(currBoard.getPlayer());
 	}
 	

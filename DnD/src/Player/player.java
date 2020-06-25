@@ -59,4 +59,9 @@ public abstract class player extends Unit
 	{
 		currBoard.SwapPlaces(this, e);
 	}
+
+	@Override
+	public void Visit(player p) {
+		// do nothing
+	}
 }
