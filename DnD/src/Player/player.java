@@ -9,8 +9,8 @@ import misc.*;
 public abstract class player extends Unit
 {
 	
-	Pool experience;
-	int PlayerLevel;
+	protected Pool experience;
+	protected int PlayerLevel;
 
 	@Override
 	public void Accept(Unit u)
