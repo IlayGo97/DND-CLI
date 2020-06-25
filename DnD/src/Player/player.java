@@ -28,16 +28,14 @@ public abstract class player extends Unit
 		this.defensePoints=defensePoints+PlayerLevel;
 		ClassLevelup();
 	}
-<<<<<<< HEAD
 	
 	protected abstract void ClassLevelup();
-	
-=======
+
 	public void Interact(Tile t)
 	{
 		t.Accept(this);
 	}
->>>>>>> branch 'master' of https://github.com/IlayGo97/DnD/
+
 	@Override
 	public void Visit(Enemy e)
 	{
