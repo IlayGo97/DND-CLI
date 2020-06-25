@@ -18,8 +18,6 @@ public abstract class player extends Unit
 		u.Visit(this);
 	}
 	
-	protected abstract void ClassLevelup();
-	
 	public void Levelup()
 	{
 		experience.Empty();
@@ -30,10 +28,14 @@ public abstract class player extends Unit
 		this.defensePoints=defensePoints+PlayerLevel;
 		ClassLevelup();
 	}
+	
+	protected abstract void ClassLevelup();
+
 	public void Interact(Tile t)
 	{
 		t.Accept(this);
 	}
+
 	@Override
 	public void Visit(Enemy e)
 	{
