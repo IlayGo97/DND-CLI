@@ -1,11 +1,14 @@
 package TileType;
+import General.Board;
+import General.EventHandler;
 import General.Observer;
 import Player.player;
 import enemies.Enemy;
 import misc.Pool;
 
 public abstract class Unit extends Tile implements Observer {
-	
+	protected EventHandler EH = EventHandler.GetInstance();
+	protected Board currBoard= Board.GetInstance();
 	public String name;
 	public Pool healthPool;
 	public int attackPoints;

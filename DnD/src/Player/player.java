@@ -39,12 +39,23 @@ public abstract class player extends Unit
 	@Override
 	public void Visit(Enemy e)
 	{
-		//TODO FIGHT
+		int attackroll = (int)Math.random()*attackPoints;
+		int defenseroll =(int)Math.random()*e.defensePoints;
+		int Damage = attackroll-defenseroll;
+		if(Damage<0)
+			Damage = 0;
+		if(e.healthPool.ReduceCurr(Damage))
+		{
+			if(this.experience.Add(e.experienceValue))
+				this.Levelup();
+			//TODO kill enemy
+		}
+		
 	}
 	
 	@Override
 	public void Visit(Empty e)
 	{
-		//TODO Swap places
+		currBoard.SwapPlaces(this, e);
 	}
 }
