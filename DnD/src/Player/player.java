@@ -45,9 +45,10 @@ public abstract class player extends Unit
 		int Damage = Math.max(0, attackroll-defenseroll);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
+			//e.KillThis();
+			currBoard.Board[e.x][e.y]=new Empty(e.x,e.y);
 			if(this.experience.Add(e.experienceValue))
 				this.Levelup();
-			e.KillThis();
 		}
 		
 	}
