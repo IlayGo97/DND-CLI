@@ -8,7 +8,6 @@ public class Empty extends Tile {
 		y= _y;
 		Char= '.';
 	}
-	
 
 	@Override
 	public String toString() {
@@ -17,7 +16,6 @@ public class Empty extends Tile {
 
 	@Override
 	public void Accept(Unit u) {
-		// TODO Swap Places
-		
+		u.Visit(this); // swapאפשר גם כאן לעשות את ה
 	}
 }

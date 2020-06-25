@@ -1,11 +1,14 @@
 package General;
 
 public class EventHandler {
+	
 	static EventHandler _eventhandler = null;
+	
 	private EventHandler()
 	{
 		
 	}
+	
 	public static EventHandler GetInstance()
 	{
 		if(_eventhandler == null)
@@ -14,6 +17,7 @@ public class EventHandler {
 		}
 		return _eventhandler; 
 	}
+	
 	public void HandleEvent(String s)
 	{
 		System.out.println(s);

@@ -7,6 +7,7 @@ import TileType.Unit;
 public class Monster extends Enemy  {
 	
 	public int visionRange;
+	
 	public void Update()
 	{
 		if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
@@ -35,19 +36,19 @@ public class Monster extends Enemy  {
 			}
 			else if (r<=40)
 			{
-				Interact(currBoard.GetTile(this.x, this.y-1));
+				Interact(currBoard.GetTile(this.x+1, this.y));
 			}
 			else if (r<=60)
 			{
-				Interact(currBoard.GetTile(this.x, this.y+1));
+				Interact(currBoard.GetTile(this.x-1, this.y));
 			}
 			else if(r<=80)
 			{
-				Interact(currBoard.GetTile(this.x+1, this.y));
+				Interact(currBoard.GetTile(this.x, this.y+1));
 			}
 			else 
 			{
-				Interact(currBoard.GetTile(this.x-1, this.y-1));
+				Interact(currBoard.GetTile(this.x, this.y-1));
 			}
 		}
 	}
@@ -56,18 +57,25 @@ public class Monster extends Enemy  {
 	public void Visit(Empty e) {
 		currBoard.SwapPlaces(this, e);
 	}
+	
 	@Override
 	public void Visit(player p) {
-		// TODO Fight
-		
+		int attackroll = (int)Math.random()*attackPoints;
+		int defenseroll = (int)Math.random()*p.defensePoints;
+		int Damage = Math.max(0, attackroll-defenseroll);
+		if(p.healthPool.ReduceCurr(Damage))
+		{
+			//TODO kill player
+		}
 	}
+	
 	@Override
 	public void Visit(Enemy e) {
 		//do nothing
 	}
+	
 	@Override
 	public void Accept(Unit u) {
 		// TODO Auto-generated method stub
-		
 	}
 }

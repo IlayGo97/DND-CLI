@@ -40,10 +40,8 @@ public abstract class player extends Unit
 	public void Visit(Enemy e)
 	{
 		int attackroll = (int)Math.random()*attackPoints;
-		int defenseroll =(int)Math.random()*e.defensePoints;
-		int Damage = attackroll-defenseroll;
-		if(Damage<0)
-			Damage = 0;
+		int defenseroll = (int)Math.random()*e.defensePoints;
+		int Damage = Math.max(0, attackroll-defenseroll);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
 			if(this.experience.Add(e.experienceValue))
