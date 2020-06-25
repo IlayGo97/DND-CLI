@@ -43,8 +43,10 @@ public abstract class player extends Unit
 		int attackroll = this.RollAttack();
 		int defenseroll = e.RollDefense();
 		int Damage = Math.max(0, attackroll-defenseroll);
+		eh.HandleEvent(name+ "dealt "+Damage+" to "+e.name);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
+			eh.HandleEvent(e.name+" died. "+this.name+" gained "+e.experienceValue+" experience");
 			if(this.experience.Add(e.experienceValue))
 				this.Levelup();
 			e.KillThis();

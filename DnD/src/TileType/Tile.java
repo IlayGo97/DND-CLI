@@ -5,4 +5,9 @@ public abstract class Tile {
 	public int y = 0;
 	public char Char = ' ';
 	public abstract void Accept(Unit u);
+	@Override
+	public String toString()
+	{
+		return Character.toString(Char);
+	}
 }

@@ -3,11 +3,23 @@ package enemies;
 import Player.player;
 import TileType.Empty;
 import TileType.Unit;
+import misc.Pool;
 
 public class Monster extends Enemy  {
 	
 	public int visionRange;
-	
+	public Monster (int x, int y,int vision,int exp,int maxhp, String name, char Character ,int def, int att)
+	{
+		this.defensePoints= def;
+		this.attackPoints = att;
+		this.experienceValue= exp;
+		this.x =x;
+		this.y= y;
+		this.name = name;
+		this.Char = Character;
+		this.visionRange = vision;
+		this.healthPool = new Pool(maxhp);
+	}
 	public void Update()
 	{
 		if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
@@ -52,30 +64,13 @@ public class Monster extends Enemy  {
 			}
 		}
 	}
-
 	@Override
-	public void Visit(Empty e) {
-		currBoard.SwapPlaces(this, e);
-	}
-	
-	@Override
-	public void Visit(player p) {
-		int attackroll = (int)Math.random()*attackPoints;
-		int defenseroll = (int)Math.random()*p.defensePoints;
-		int Damage = Math.max(0, attackroll-defenseroll);
-		if(p.healthPool.ReduceCurr(Damage))
-		{
-			//TODO kill player
-		}
-	}
-	
-	@Override
-	public void Visit(Enemy e) {
-		//do nothing
-	}
-	
-	@Override
-	public void Accept(Unit u) {
+	public String Describe() {
 		// TODO Auto-generated method stub
+		return null;
 	}
+
+
+	
+	
 }
