@@ -1,18 +1,22 @@
 package General;
+import java.util.ArrayList;
+
 import Player.player;
 import TileType.Empty;
 import TileType.Tile;
 import TileType.Unit;
+import enemies.Enemy;
 
 public class Board {
 	
 	public Tile[][] Board;
-	private player p;
+	public player p;
 	private static Board _Board = null;
+	public ArrayList<Enemy> EnemyList;
 	
 	private Board (String board)
 	{
-		//TODO create board and update player field
+		//TODO create board and update player field don't forget to get player location and enemies into enemy list
 	}
 	
 	public static Board setUp(String board)
@@ -29,7 +33,17 @@ public class Board {
 	
 	public Tile GetTile(int x, int y)
 	{
-		return Board[x][y];
+		int outputx=0;
+		int outputy=0;
+		if(x>Board.length)
+			outputx = Board.length-1;
+		else if(x<0)
+			outputx = 0;
+		if(y>Board[outputx].length)
+			outputy = Board[outputx].length-1;
+		else if(y<0)
+			outputy = 0;
+		return Board[outputx][outputy];
 	}
 	
 	public int Range(Tile t, Tile e)
@@ -56,6 +70,11 @@ public class Board {
 		return p;
 	}
 	
+	public ArrayList<Enemy> getAllEnemies()
+	{
+		return this.EnemyList;
+	}
+	
 	public void SwapPlaces(Tile t, Tile t1)
 	{
 		Tile temp = t;
@@ -68,8 +87,9 @@ public class Board {
 		t.y = t1.y - t.y;
 		t1.y = t1.y - t.y;
 	}
-	public void Kill(Unit t)
+	public void KillEnemy(Enemy t)
 	{
+		EnemyList.remove(t);
 		Board[t.x][t.y]= new Empty(t.x,t.y);
 	}
 }

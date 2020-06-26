@@ -32,4 +32,10 @@ public class Warrior extends player {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void SpecialAbility() {
+		// TODO Auto-generated method stub
+		
+	}
 }

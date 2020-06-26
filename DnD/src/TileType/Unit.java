@@ -36,8 +36,4 @@ public abstract class Unit extends Tile implements Observer, EventCreator {
 		eh.HandleEvent(name+" rolled "+output+" defense points.");
 		return output;
 	}
-	public void KillThis()
-	{
-		currBoard.Kill(this);
-	}
 }

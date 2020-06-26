@@ -46,8 +46,8 @@ public abstract class player extends Unit
 		eh.HandleEvent(name+ "dealt "+Damage+" to "+e.name);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
-			//e.KillThis();
-			currBoard.Board[e.x][e.y]=new Empty(e.x,e.y);
+			currBoard.SwapPlaces(this, e);
+			e.KillThis();
 			eh.HandleEvent(e.name+" died. "+this.name+" gained "+e.experienceValue+" experience");
 			if(this.experience.Add(e.experienceValue))
 				this.Levelup();
@@ -64,4 +64,6 @@ public abstract class player extends Unit
 	public void Visit(player p) {
 		// do nothing
 	}
+	
+	public abstract void SpecialAbility();
 }
