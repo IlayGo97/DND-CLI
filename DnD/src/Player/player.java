@@ -9,7 +9,7 @@ import misc.*;
 public abstract class player extends Unit
 {
 	
-	protected Pool experience;
+	protected Pool experience = new Pool(50);
 	protected int PlayerLevel;
 
 	@Override
@@ -46,11 +46,7 @@ public abstract class player extends Unit
 		eh.HandleEvent(name+ " dealt "+Damage+" Damage to "+e.name);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
-			currBoard.SwapPlaces(this, e);
-			e.KillThis();
-			eh.HandleEvent(e.name+" died. "+this.name+" gained "+e.experienceValue+" experience");
-			if(this.experience.Add(e.experienceValue))
-				this.Levelup();
+			Slay(e);
 		}
 	}
 	
@@ -64,6 +60,13 @@ public abstract class player extends Unit
 	public void Visit(player p) {
 		// do nothing
 	}
-	
+	public void Slay(Enemy e)
+	{
+		currBoard.SwapPlaces(this, e);
+		e.KillThis();
+		eh.HandleEvent(e.name+" died. "+this.name+" gained "+e.experienceValue+" experience");
+		if(this.experience.Add(e.experienceValue))
+			this.Levelup();
+	}
 	public abstract void SpecialAbility();
 }
