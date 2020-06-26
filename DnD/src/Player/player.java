@@ -11,6 +11,13 @@ public abstract class player extends Unit
 	
 	protected Pool experience = new Pool(50);
 	protected int PlayerLevel;
+	
+	public player(int x, int y, String name, int maxHP, int att, int def)
+	{
+		super(x, y, name, maxHP, att, def);
+		Char = '@';
+		PlayerLevel = 1;
+	}
 
 	@Override
 	public void Accept(Unit u)
@@ -60,6 +67,7 @@ public abstract class player extends Unit
 	public void Visit(player p) {
 		// do nothing
 	}
+	
 	public void Slay(Enemy e)
 	{
 		currBoard.SwapPlaces(this, e);
@@ -68,5 +76,6 @@ public abstract class player extends Unit
 		if(this.experience.Add(e.experienceValue))
 			this.Levelup();
 	}
+	
 	public abstract void SpecialAbility();
 }

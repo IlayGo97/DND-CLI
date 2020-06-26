@@ -7,7 +7,13 @@ import TileType.Wall;
 
 public abstract class Enemy extends Unit
 {
+	
 	public int experienceValue;
+	
+	public Enemy(int x, int y, String name, int maxHP, int att, int def, int exp) {
+		super(x, y, name, maxHP, att, def);
+		experienceValue = exp;
+	}
 
 	public void Interact(Tile t)
 	{

@@ -3,26 +3,19 @@ import Player.player;
 import TileType.Empty;
 
 public class Trap extends Enemy {
-	
+
 	private int visibilityTime;
 	private int invisibilityTime;
 	private int ticksCount;
 	private Boolean visible;
 	
-	public Trap(int x, int y, int att, int def, int maxHP, int exp, String _name, int VisTime, int InvisTime, char Chara)
-	{
-		ticksCount = 0;
-		visible = true;
-		this.x = x;
-		this.y = y;
+	public Trap(int x, int y, String name, int maxHP, int att, int def, int exp, int VisTime, int InvisTime, char Chara) {
+		super(x, y, name, maxHP, att, def, exp);
 		visibilityTime = VisTime;
 		invisibilityTime = InvisTime;
-		this.defensePoints = def;
-		this.attackPoints = att;
-		this.experienceValue = exp;
 		this.Char = Chara;
-		this.name = _name;
-		// maxHP?
+		ticksCount = 0;
+		visible = true;
 	}
 	
 	@Override

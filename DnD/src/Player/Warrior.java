@@ -8,14 +8,9 @@ public class Warrior extends player {
 	
 	Resource cooldown;
 
-	public Warrior (int x, int y, int def, int att, String _name, int cooldown, int maxHP)
+	public Warrior(int x, int y, String name, int maxHP, int att, int def, int cooldown)
 	{
-		this.x = x;
-		this.y = y;
-		this.defensePoints = def;
-		this.attackPoints = att;
-		this.name = _name;
-		this.healthPool = new Pool(maxHP);
+		super(x, y, name, maxHP, att, def);
 		this.cooldown = new Resource(cooldown);
 	}
 
@@ -26,6 +21,7 @@ public class Warrior extends player {
 
 	@Override
 	protected void ClassLevelup() {
+		PlayerLevel++;
 		cooldown.Reset();
 		healthPool.IncreaseMax(5*this.PlayerLevel);
 		attackPoints = attackPoints+2*PlayerLevel;
@@ -39,7 +35,7 @@ public class Warrior extends player {
 	}
 
 	@Override
-	public void SpecialAbility() //AVENGER'S SHIELD MURHAHA
+	public void SpecialAbility() // AVENGER'S SHIELD MURHAHA
 	{
 		//heal first
 		int healAmount = 10* this.defensePoints;
@@ -64,6 +60,5 @@ public class Warrior extends player {
 				Slay(Hit);
 			}
 		}
-		
 	}
 }

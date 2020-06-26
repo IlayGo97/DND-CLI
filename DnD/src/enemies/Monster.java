@@ -4,21 +4,14 @@ import TileType.Empty;
 import TileType.Unit;
 import misc.Pool;
 
-public class Monster extends Enemy  {
-	
+public class Monster extends Enemy {
+
 	public int visionRange;
 	
-	public Monster (int x, int y,int vision,int exp,int maxhp, String name, char Character ,int def, int att)
-	{
-		this.defensePoints= def;
-		this.attackPoints = att;
-		this.experienceValue= exp;
-		this.x =x;
-		this.y= y;
-		this.name = name;
-		this.Char = Character;
-		this.visionRange = vision;
-		this.healthPool = new Pool(maxhp);
+	public Monster(int x, int y, String name, int maxHP, int att, int def, int exp, int visionRange, char Char) {
+		super(x, y, name, maxHP, att, def, exp);
+		this.visionRange = visionRange;
+		this.Char = Char;
 	}
 	
 	public void Update()
