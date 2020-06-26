@@ -26,13 +26,13 @@ public abstract class Unit extends Tile implements Observer, EventCreator {
 	public abstract void Accept(Unit u);
 	public int RollAttack()
 	{
-		int output = (int)Math.random()*attackPoints;
+		int output = (int)(Math.random()*attackPoints);
 		eh.HandleEvent(name+" rolled "+output+" attack points.");
 		return output;
 	}
 	public int RollDefense()
 	{
-		int output =(int)Math.random()*defensePoints;
+		int output =(int)(Math.random()*defensePoints);
 		eh.HandleEvent(name+" rolled "+output+" defense points.");
 		return output;
 	}

@@ -43,7 +43,7 @@ public abstract class player extends Unit
 		int attackroll = this.RollAttack();
 		int defenseroll = e.RollDefense();
 		int Damage = Math.max(0, attackroll-defenseroll);
-		eh.HandleEvent(name+ "dealt "+Damage+" to "+e.name);
+		eh.HandleEvent(name+ " dealt "+Damage+" Damage to "+e.name);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
 			currBoard.SwapPlaces(this, e);

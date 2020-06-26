@@ -22,7 +22,10 @@ public class Board {
 	public static Board setUp(String board)
 	{
 		if(_Board == null)
-			return new Board(board);
+			{
+				_Board = new Board (board);
+				return _Board;
+			}
 		else return _Board;
 	}
 	

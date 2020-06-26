@@ -12,6 +12,8 @@ public class Warrior extends player {
 		this.defensePoints = def;
 		this.attackPoints = att;
 		this.name = _name;
+		this.experience = new Pool(50);
+		this.healthPool = new Pool(100);
 		// this.cooldown = cooldown;
 	}
 
