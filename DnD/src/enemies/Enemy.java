@@ -47,6 +47,7 @@ public abstract class Enemy extends Unit
 	public void Visit(Enemy e) {
 		//do nothing
 	}
+	
 	public void KillThis()
 	{
 		currBoard.KillEnemy(this);

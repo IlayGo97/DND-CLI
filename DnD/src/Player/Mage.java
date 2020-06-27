@@ -1,5 +1,9 @@
 package Player;
 
+import java.util.ArrayList;
+
+import enemies.Enemy;
+
 public class Mage extends player {
 	
 	int manaPool;
@@ -34,9 +38,30 @@ public class Mage extends player {
 	}
 
 	@Override
-	public void SpecialAbility() {
-		// TODO Auto-generated method stub
-		
+	public void SpecialAbility() // BLIZZARD
+	{
+		if(currentMana < manaCost)
+			eh.HandleEvent(this.name+" didn't have enough mana to cast blizzard");
+		else {
+			currentMana -= manaCost;
+			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, abilityRange);
+			int hits = 0;
+			while(hits < hitsCount & CloseEnemies.size() > 0) {
+				int chosen = (int)(Math.random()*CloseEnemies.size());
+				Enemy Hit = CloseEnemies.get(chosen);
+				int DamageDone = spellPower - Hit.RollDefense();
+				if(DamageDone < 0)
+					DamageDone = 0;
+				Boolean killed = Hit.healthPool.ReduceCurr(DamageDone);
+				eh.HandleEvent(this.name+" hit "+Hit.name+" for "+DamageDone+" ability Damage.");
+				if (killed)
+				{
+					Slay(Hit);
+				}
+				CloseEnemies.remove(chosen);
+				hits++;
+			}
+		}
 	}
 
 	@Override

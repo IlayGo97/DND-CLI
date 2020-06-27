@@ -36,8 +36,8 @@ public class Board {
 	
 	public Tile GetTile(int x, int y)
 	{
-		int outputx=0;
-		int outputy=0;
+		int outputx = x;
+		int outputy = y;
 		if(x>Board.length)
 			outputx = Board.length-1;
 		else if(x<0)
@@ -72,10 +72,19 @@ public class Board {
 	public player getPlayer() {
 		return p;
 	}
-	
+
 	public ArrayList<Enemy> getAllEnemies()
 	{
 		return this.EnemyList;
+	}
+	
+	public ArrayList<Enemy> getAllCloseEnemies(Tile t, int range)
+	{
+		ArrayList<Enemy> CloseEnemies = new ArrayList<Enemy>();
+		for(Enemy e : EnemyList)
+		if(this.Range(t, e)<range)
+			CloseEnemies.add(e);
+		return CloseEnemies;
 	}
 	
 	public void SwapPlaces(Tile t, Tile t1)
@@ -90,9 +99,10 @@ public class Board {
 		t.y = t1.y - t.y;
 		t1.y = t1.y - t.y;
 	}
+	
 	public void KillEnemy(Enemy t)
 	{
 		EnemyList.remove(t);
-		Board[t.x][t.y]= new Empty(t.x,t.y);
+		Board[t.x][t.y] = new Empty(t.x,t.y);
 	}
 }

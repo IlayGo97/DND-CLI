@@ -1,5 +1,9 @@
 package Player;
 
+import java.util.ArrayList;
+
+import enemies.Enemy;
+
 public class Hunter extends player {
 	
 	int range;
@@ -33,9 +37,31 @@ public class Hunter extends player {
 	}
 
 	@Override
-	public void SpecialAbility() {
-		// TODO Auto-generated method stub
-		
+	public void SpecialAbility() // SHOOT
+	{
+		if(arrowsCount == 0)
+			eh.HandleEvent(this.name+" didn't have enough arrows to cast shoot");
+		else {
+			if(currBoard.getAllCloseEnemies(this, range).isEmpty())
+				eh.HandleEvent("there are not any enemies in "+this.name+" range");
+			else {
+				arrowsCount--;
+				for(int min=1;min<=range;min++) {
+					ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, min);
+					if(!CloseEnemies.isEmpty()) {
+						Enemy closest = CloseEnemies.get(0);
+						int DamageDone = this.attackPoints - closest.RollDefense();
+						if(DamageDone < 0)
+							DamageDone = 0;
+						Boolean killed = closest.healthPool.ReduceCurr(DamageDone);
+						eh.HandleEvent(this.name+" hit "+closest.name+" for "+DamageDone+" ability Damage.");
+						if (killed)
+							Slay(closest);
+						return;
+					}
+				}
+			}
+		}
 	}
 
 	@Override

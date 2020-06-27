@@ -14,7 +14,7 @@ public class Pool {
 		int oldcur = current;
 		current=Math.min(current+amount, max);
 		if(oldcur+amount>max)
-			return true; // if leveled 
+			return true; // if leveled
 		else return false;
 	}
 	
@@ -25,8 +25,8 @@ public class Pool {
 	
 	public Boolean ReduceCurr(int amount) {
 		int oldcur = current;
-		current=Math.max(current-amount, 0);
-		if(oldcur-amount<=0)
+		current = Math.max(current-amount, 0);
+		if(oldcur - amount <= 0)
 			return true; // if died
 		else return false;
 	}

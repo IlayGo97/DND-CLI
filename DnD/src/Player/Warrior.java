@@ -37,27 +37,24 @@ public class Warrior extends player {
 	@Override
 	public void SpecialAbility() // AVENGER'S SHIELD MURHAHA
 	{
-		//heal first
-		int healAmount = 10* this.defensePoints;
-		this.healthPool.Add(healAmount);
-		eh.HandleEvent(this.name+" used Avenger's Shield, healing for "+healAmount);
-		ArrayList<Enemy> CloseEnemies = new ArrayList<Enemy>();
-		for(Enemy e : currBoard.getAllEnemies())
-		{
-			if(currBoard.Range(this, e)<3)
-				CloseEnemies.add(e);
-		}
-		if(CloseEnemies.size()>0) {
-			int chosen = (int)(Math.random()*CloseEnemies.size());
-			Enemy Hit = CloseEnemies.get(chosen);
-			int DamageDone = (int)(healthPool.max*0.1)-Hit.RollDefense();
-			if(DamageDone <0)
-				DamageDone = 0;
-			Boolean killed = Hit.healthPool.ReduceCurr(DamageDone);
-			eh.HandleEvent(this.name+" hit "+Hit.name+" for "+DamageDone+" ability Damage.");
-			if (killed)
-			{
-				Slay(Hit);
+		if(cooldown.isAvailable())
+			eh.HandleEvent(this.name+" couldn't cast avenger's shield");
+		else {
+			//heal first
+			int healAmount = 10* this.defensePoints;
+			this.healthPool.Add(healAmount);
+			eh.HandleEvent(this.name+" used Avenger's Shield, healing for "+healAmount);
+			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, 3);
+			if(CloseEnemies.size() > 0) {
+				int chosen = (int)(Math.random()*CloseEnemies.size());
+				Enemy Hit = CloseEnemies.get(chosen);
+				int DamageDone = (int)(healthPool.max*0.1) - Hit.RollDefense();
+				if(DamageDone < 0)
+					DamageDone = 0;
+				Boolean killed = Hit.healthPool.ReduceCurr(DamageDone);
+				eh.HandleEvent(this.name+" hit "+Hit.name+" for "+DamageDone+" ability Damage.");
+				if (killed)
+					Slay(Hit);
 			}
 		}
 	}

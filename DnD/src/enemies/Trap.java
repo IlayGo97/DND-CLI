@@ -31,7 +31,7 @@ public class Trap extends Enemy {
 			visible = true;
 			ticksCount = 0;
 		}
-		if(currBoard.Range(this, currBoard.getPlayer())<=2)
+		if(currBoard.Range(this, currBoard.getPlayer())<2)
 			this.Visit(currBoard.getPlayer());
 	}
 	
