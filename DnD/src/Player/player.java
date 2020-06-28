@@ -78,4 +78,24 @@ public abstract class player extends Unit
 	}
 	
 	public abstract void SpecialAbility();
+	
+	public void InteractRight()
+	{
+		this.Interact(currBoard.GetTile(this.x+1, this.y));
+	}
+	
+	public void InteractLeft()
+	{
+		this.Interact(currBoard.GetTile(this.x-1, this.y));
+	}
+	
+	public void InteractUp()
+	{
+		this.Interact(currBoard.GetTile(this.x, this.y+1));
+	}
+	
+	public void InteractDown()
+	{
+		this.Interact(currBoard.GetTile(this.x, this.y-1));
+	}
 }

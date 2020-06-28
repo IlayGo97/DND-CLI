@@ -1,9 +1,11 @@
 package General;
 import java.util.*;
+import Player.player;
 
 public class GameManager implements Observable {
 	
 	final ArrayList<Observer> Observers = new ArrayList<Observer>();
+	private player p;
 	
 	@Override
 	public void addObserver(Observer o) {
@@ -18,7 +20,29 @@ public class GameManager implements Observable {
 		}
 	}
 	
-	public void getUserInput() {
-		Scanner s = new Scanner(System.in);
+	public void getUserInput(char input) {
+		switch(input)
+		{
+		case 'a':
+			p.InteractLeft();
+			break;
+		case 's':
+			p.InteractDown();
+			break;
+		case 'd':
+			p.InteractRight();
+			break;
+		case 'w':
+			p.InteractUp();
+			break;
+		case 'e':
+			p.SpecialAbility();
+			break;
+		case 'q':
+			break;
+		default: 
+			return; //error message
+		}
+		notifyObservers();
 	}
 }
