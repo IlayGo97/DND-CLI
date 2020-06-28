@@ -1,24 +1,23 @@
 package Player;
 import misc.*;
-
 import java.util.ArrayList;
-
 import enemies.Enemy;
+
 public class Warrior extends player {
 	
 	Resource cooldown;
-
+	
 	public Warrior(int x, int y, String name, int maxHP, int att, int def, int cooldown)
 	{
 		super(x, y, name, maxHP, att, def);
 		this.cooldown = new Resource(cooldown);
 	}
-
+	
 	@Override
 	public void Update() {
 		cooldown.Tick();
 	}
-
+	
 	@Override
 	protected void ClassLevelup() {
 		cooldown.Reset();
@@ -26,13 +25,13 @@ public class Warrior extends player {
 		attackPoints = attackPoints+2*PlayerLevel;
 		defensePoints = defensePoints +PlayerLevel;
 	}
-
+	
 	@Override
 	public String Describe() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public void SpecialAbility() // AVENGER'S SHIELD MURHAHA
 	{
@@ -40,7 +39,7 @@ public class Warrior extends player {
 			eh.HandleEvent(this.name+" couldn't cast avenger's shield");
 		else {
 			//heal first
-			int healAmount = 10* this.defensePoints;
+			int healAmount = 10 * this.defensePoints;
 			this.healthPool.Add(healAmount);
 			eh.HandleEvent(this.name+" used Avenger's Shield, healing for "+healAmount);
 			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, 3);

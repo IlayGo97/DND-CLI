@@ -5,7 +5,7 @@ import TileType.Unit;
 import misc.Pool;
 
 public class Monster extends Enemy {
-
+	
 	public int visionRange;
 	
 	public Monster(int x, int y, String name, int maxHP, int att, int def, int exp, int visionRange, char Char) {

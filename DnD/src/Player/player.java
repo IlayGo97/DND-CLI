@@ -18,7 +18,7 @@ public abstract class player extends Unit
 		Char = '@';
 		PlayerLevel = 1;
 	}
-
+	
 	@Override
 	public void Accept(Unit u)
 	{
@@ -37,12 +37,12 @@ public abstract class player extends Unit
 	}
 	
 	protected abstract void ClassLevelup();
-
+	
 	public void Interact(Tile t)
 	{
 		t.Accept(this);
 	}
-
+	
 	@Override
 	public void Visit(Enemy e)
 	{
@@ -63,7 +63,7 @@ public abstract class player extends Unit
 	{
 		currBoard.SwapPlaces(this, e);
 	}
-
+	
 	@Override
 	public void Visit(player p) {
 		// do nothing

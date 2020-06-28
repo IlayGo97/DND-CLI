@@ -11,7 +11,7 @@ public class GameManager implements Observable {
 	public void addObserver(Observer o) {
 		Observers.add(o);
 	}
-
+	
 	@Override
 	public void notifyObservers() {
 		for(Observer o: Observers)
@@ -23,25 +23,25 @@ public class GameManager implements Observable {
 	public void getUserInput(char input) {
 		switch(input)
 		{
-		case 'a':
-			p.InteractLeft();
-			break;
-		case 's':
-			p.InteractDown();
-			break;
-		case 'd':
-			p.InteractRight();
-			break;
-		case 'w':
-			p.InteractUp();
-			break;
-		case 'e':
-			p.SpecialAbility();
-			break;
-		case 'q':
-			break;
-		default: 
-			return; //error message
+			case 'a':
+				p.InteractLeft();
+				break;
+			case 's':
+				p.InteractDown();
+				break;
+			case 'd':
+				p.InteractRight();
+				break;
+			case 'w':
+				p.InteractUp();
+				break;
+			case 'e':
+				p.SpecialAbility();
+				break;
+			case 'q':
+				break;
+			default: 
+				return; //error message
 		}
 		notifyObservers();
 	}

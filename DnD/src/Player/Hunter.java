@@ -1,7 +1,5 @@
 package Player;
-
 import java.util.ArrayList;
-
 import enemies.Enemy;
 
 public class Hunter extends player {
@@ -17,7 +15,7 @@ public class Hunter extends player {
 		this.arrowsCount = PlayerLevel * 10;
 		this.ticksCount = 0;
 	}
-
+	
 	@Override
 	public void Update() {
 		if(ticksCount == 10) {
@@ -27,14 +25,14 @@ public class Hunter extends player {
 		else
 			ticksCount++;
 	}
-
+	
 	@Override
 	protected void ClassLevelup() {
 		arrowsCount += 10 * PlayerLevel;
 		attackPoints += 2 * PlayerLevel;
 		defensePoints +=  PlayerLevel;
 	}
-
+	
 	@Override
 	public void SpecialAbility() // SHOOT
 	{
@@ -62,7 +60,7 @@ public class Hunter extends player {
 			}
 		}
 	}
-
+	
 	@Override
 	public String Describe() {
 		// TODO Auto-generated method stub

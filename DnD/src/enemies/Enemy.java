@@ -14,7 +14,7 @@ public abstract class Enemy extends Unit
 		super(x, y, name, maxHP, att, def);
 		experienceValue = exp;
 	}
-
+	
 	public void Interact(Tile t)
 	{
 		t.Accept(this);

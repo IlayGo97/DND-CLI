@@ -1,5 +1,4 @@
 package Player;
-
 import java.util.ArrayList;
 
 import enemies.Enemy;
@@ -23,19 +22,19 @@ public class Mage extends player {
 		this.hitsCount = hitsCount;
 		this.abilityRange = abilityRange;
 	}
-
+	
 	@Override
 	public void Update() {
 		mana.Add(PlayerLevel);
 	}
-
+	
 	@Override
 	protected void ClassLevelup() {
 		mana.IncreaseMax(25 * PlayerLevel);
 		mana.IncreaseMax(mana.max/4);
 		spellPower += 10 * PlayerLevel;
 	}
-
+	
 	@Override
 	public void SpecialAbility() // BLIZZARD
 	{
@@ -62,7 +61,7 @@ public class Mage extends player {
 			}
 		}
 	}
-
+	
 	@Override
 	public String Describe() {
 		// TODO Auto-generated method stub

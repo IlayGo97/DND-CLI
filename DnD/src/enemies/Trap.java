@@ -3,7 +3,7 @@ import Player.player;
 import TileType.Empty;
 
 public class Trap extends Enemy {
-
+	
 	private int visibilityTime;
 	private int invisibilityTime;
 	private int ticksCount;
