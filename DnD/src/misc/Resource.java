@@ -2,8 +2,8 @@ package misc;
 
 public class Resource {
 	
-	private int coolDown;
-	private int remainingCoolDown;
+	public int coolDown;
+	public int remainingCoolDown;
 	
 	public Resource(int _maxcd)
 	{

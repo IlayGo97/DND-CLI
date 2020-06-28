@@ -10,16 +10,17 @@ public class Pool {
 		this.max = max;
 		this.Fill();
 	}
+	
 	public Boolean Add(int amount) {
 		int oldcur = current;
-		current=Math.min(current+amount, max);
+		current = Math.min(current+amount, max);
 		if(oldcur+amount>max)
 			return true; // if leveled
 		else return false;
 	}
 	
 	public Boolean IncreaseMax(int amount) {
-		max+=amount;
+		max += amount;
 		return true;
 	}
 	
@@ -32,12 +33,12 @@ public class Pool {
 	}
 	
 	public Boolean Fill() {
-		current=max;
+		current = max;
 		return true;
 	}
 	
 	public void Empty()
 	{
-		current=0;
+		current = 0;
 	}
 }

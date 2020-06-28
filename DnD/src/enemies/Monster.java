@@ -51,7 +51,6 @@ public class Monster extends Enemy {
 	
 	@Override
 	public String Describe() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Experience Value: "+this.experienceValue+"		Vision Range: "+this.visionRange;
 	}
 }

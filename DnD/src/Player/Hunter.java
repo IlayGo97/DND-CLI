@@ -63,7 +63,6 @@ public class Hunter extends player {
 	
 	@Override
 	public String Describe() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Level: "+this.PlayerLevel+"		Experience: "+this.experience.current+"/"+this.experience.max+"		Arrows: "+this.arrowsCount+"		Range: "+this.range;
 	}
 }

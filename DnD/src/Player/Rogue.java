@@ -49,7 +49,6 @@ public class Rogue extends player {
 	
 	@Override
 	public String Describe() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Level: "+this.PlayerLevel+"		Experience: "+this.experience.current+"/"+this.experience.max+"		Energy: "+this.currentEnergy+"/100";
 	}
 }

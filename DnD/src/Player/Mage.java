@@ -64,7 +64,6 @@ public class Mage extends player {
 	
 	@Override
 	public String Describe() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Level: "+this.PlayerLevel+"		Experience: "+this.experience.current+"/"+this.experience.max+"		Mana: "+this.mana.current+"/"+this.mana.max+"	Spell Power: "+this.spellPower;
 	}
 }
