@@ -24,6 +24,11 @@ public abstract class Unit extends Tile implements Observer, EventCreator {
 		this.defensePoints = def;
 	}
 	
+	public void ReloadBoard()
+	{
+		currBoard = Board.GetInstance();
+	}
+	
 	public abstract String Describe();
 	
 	public abstract void Visit(Empty e);

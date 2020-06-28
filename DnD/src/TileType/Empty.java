@@ -14,6 +14,6 @@ public class Empty extends Tile {
 
 	@Override
 	public void Accept(Unit u) {
-		u.Visit(this); // swapאפשר גם כאן לעשות את ה
+		u.Visit(this);
 	}
 }

@@ -16,48 +16,50 @@ public class Board {
 	private static Board _Board = null;
 	public ArrayList<Enemy> EnemyList;
 	
-	private Board (List<String> board, player p)
+	private Board (List<String> board, player p) throws Exception
 	{
 		EnemyList = new ArrayList<Enemy>();
 		int currX =0;
 		int currY =0;
-		Board = new Tile[board.get(0).length()][board.size()];
+		Board = new Tile[board.size()][board.get(0).length()];
 		for(String Row : board)
 		{
-			currY++;
 			for(char c : Row.toCharArray())
 			{
 				switch(c)
 				{
 					case '#':
-						Wall w = new Wall(currX,currY);
-						Board[currX][currY] = w;
+						Wall w = new Wall(currY,currX);
+						Board[currY][currX] = w;
 						break;
 					case '.':
-						Empty e = new Empty(currX,currY);
-						Board[currX][currY] = e;
+						Empty e = new Empty(currY,currX);
+						Board[currY][currX] = e;
 						break;
 					case '@':
 						this.p = p;
-						p.x=currX;
-						p.y=currY;
-						Board[currX][currY] = p;
+						p.y=currX;
+						p.x=currY;
+						Board[currY][currX] = p;
+						break;
+					case ' ':
 						break;
 					default:
 						Enemy enemy = EnemyFactory.Create(c);
-						enemy.x=currX;
 						enemy.y=currY;
-						Board[currX][currY] = enemy;
+						enemy.x=currX;
+						Board[currY][currX] = enemy;
 						EnemyList.add(enemy);
 						break;
 				}
 				currX++;
 			}
+			currY++;
 			currX = 0;
 		}
 	}
 	
-	public static Board setUp(List<String> board, player p)
+	public static Board setUp(List<String> board, player p) throws Exception
 	{
 		_Board = new Board(board, p);
 		return _Board;
@@ -70,8 +72,8 @@ public class Board {
 	
 	public Tile GetTile(int x, int y)
 	{
-		int outputx = x;
-		int outputy = y;
+		int outputx = y;
+		int outputy = x;
 		if(x>Board.length)
 			outputx = Board.length-1;
 		else if(x<0)
@@ -138,5 +140,19 @@ public class Board {
 	{
 		EnemyList.remove(t);
 		Board[t.x][t.y] = new Empty(t.x,t.y);
+	}
+	
+	@Override
+	public String toString() {
+		String output ="";
+		for(Tile[] T: Board)
+		{
+			for(Tile t: T)
+			{
+				output = output+t;
+			}
+			output = output+"\r\n";
+		}
+		return output;
 	}
 }
