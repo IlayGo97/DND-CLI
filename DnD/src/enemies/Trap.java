@@ -26,7 +26,7 @@ public class Trap extends Enemy {
 			visible = false;
 			ticksCount = 0;
 		}
-		if(!visible & ticksCount> invisibilityTime)
+		if(!visible & ticksCount > invisibilityTime)
 		{
 			visible = true;
 			ticksCount = 0;

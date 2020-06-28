@@ -53,8 +53,8 @@ public abstract class player extends Unit
 		eh.HandleEvent(name+ " dealt "+Damage+" Damage to "+e.name);
 		if(e.healthPool.ReduceCurr(Damage))
 		{
+			currBoard.SwapPlaces(this, e);
 			Slay(e);
-			currBoard.SwapPlaces(this, e); 
 		}
 	}
 	
@@ -81,21 +81,21 @@ public abstract class player extends Unit
 	
 	public void InteractRight()
 	{
-		this.Interact(currBoard.GetTile(this.x+1, this.y));
+		this.Interact(currBoard.GetTile(this.x, this.y+1));
 	}
 	
 	public void InteractLeft()
 	{
-		this.Interact(currBoard.GetTile(this.x-1, this.y));
+		this.Interact(currBoard.GetTile(this.x, this.y-1));
 	}
 	
 	public void InteractUp()
 	{
-		this.Interact(currBoard.GetTile(this.x, this.y+1));
+		this.Interact(currBoard.GetTile(this.x-1, this.y));
 	}
 	
 	public void InteractDown()
 	{
-		this.Interact(currBoard.GetTile(this.x, this.y-1));
+		this.Interact(currBoard.GetTile(this.x+1, this.y));
 	}
 }

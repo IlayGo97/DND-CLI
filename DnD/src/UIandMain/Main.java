@@ -24,18 +24,19 @@ public class Main {
 		}
 		Scanner s = new Scanner(System.in);
 		int Selection = s.nextInt();
-		System.out.println("You have selected: ");
+		System.out.println("You have selected:");
 		System.out.println(GameManager.getPlayerList().get(Selection-1).name);
 		GameManager gm = null;
 		try
 		{
 			List<String> LevelFiles = Files.list(Paths.get(args[0])).sorted().map(Path::toString).collect(Collectors.toList());
-			 gm = new GameManager(Selection, LevelFiles);
+			gm = new GameManager(Selection, LevelFiles);
 		}
 		catch (IOException e)
 		{
 			System.out.println(e.getMessage());
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println(Board.GetInstance());

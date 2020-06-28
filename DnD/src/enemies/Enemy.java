@@ -34,6 +34,8 @@ public abstract class Enemy extends Unit
 		eh.HandleEvent(name+" dealt "+Damage+" to "+p.name);
 		if(p.healthPool.ReduceCurr(Damage))
 		{
+			p.Char = 'X';
+			eh.HandleEvent("You Lost.");
 			//TODO kill player and end the game.
 		}
 	}

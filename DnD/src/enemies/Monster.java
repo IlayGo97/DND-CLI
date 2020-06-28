@@ -37,7 +37,7 @@ public class Monster extends Enemy {
 		}
 		else
 		{
-			int r = (int)Math.random()*100;
+			int r = (int)(Math.random()*100);
 			if (r<=20)
 				Interact(currBoard.GetTile(this.x+1, this.y));
 			else if (r<=40)

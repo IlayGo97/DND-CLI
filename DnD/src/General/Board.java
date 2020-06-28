@@ -38,16 +38,16 @@ public class Board {
 						break;
 					case '@':
 						this.p = p;
-						p.y=currX;
 						p.x=currY;
+						p.y=currX;
 						Board[currY][currX] = p;
 						break;
 					case ' ':
 						break;
 					default:
 						Enemy enemy = EnemyFactory.Create(c);
-						enemy.y=currY;
-						enemy.x=currX;
+						enemy.x=currY;
+						enemy.y=currX;
 						Board[currY][currX] = enemy;
 						EnemyList.add(enemy);
 						break;
@@ -72,14 +72,14 @@ public class Board {
 	
 	public Tile GetTile(int x, int y)
 	{
-		int outputx = y;
-		int outputy = x;
-		if(x>Board.length)
-			outputx = Board.length-1;
+		int outputx = x;
+		int outputy = y;
+		if(x>=Board.length)
+			outputx = Board.length-2;
 		else if(x<0)
 			outputx = 0;
 		if(y>Board[outputx].length)
-			outputy = Board[outputx].length-1;
+			outputy = Board[outputx].length-2;
 		else if(y<0)
 			outputy = 0;
 		return Board[outputx][outputy];
