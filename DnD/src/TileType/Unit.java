@@ -1,9 +1,9 @@
 package TileType;
 import General.Board;
 import General.EventCreator;
-import General.EventHandler;
 import General.Observer;
 import Player.player;
+import UIandMain.EventHandler;
 import enemies.Enemy;
 import misc.Pool;
 

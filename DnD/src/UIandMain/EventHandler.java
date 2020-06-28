@@ -1,4 +1,4 @@
-package General;
+package UIandMain;
 
 public class EventHandler {
 	

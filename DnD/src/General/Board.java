@@ -1,5 +1,6 @@
 package General;
 import java.util.ArrayList;
+import java.util.List;
 
 import Player.player;
 import TileType.Empty;
@@ -14,19 +15,15 @@ public class Board {
 	private static Board _Board = null;
 	public ArrayList<Enemy> EnemyList;
 	
-	private Board (String board)
+	private Board (List<String> board, player p)
 	{
 		//TODO create board and update player field don't forget to get player location and enemies into enemy list
 	}
 	
-	public static Board setUp(String board)
+	public static Board setUp(List<String> board, player p)
 	{
-		if(_Board == null)
-			{
-				_Board = new Board (board);
-				return _Board;
-			}
-		else return _Board;
+		_Board = new Board(board, p);
+		return _Board;
 	}
 	
 	public static Board GetInstance()
