@@ -6,6 +6,7 @@ import Player.player;
 import TileType.Empty;
 import TileType.Tile;
 import TileType.Unit;
+import TileType.*;
 import enemies.Enemy;
 
 public class Board {
@@ -17,7 +18,43 @@ public class Board {
 	
 	private Board (List<String> board, player p)
 	{
-		//TODO create board and update player field don't forget to get player location and enemies into enemy list
+		EnemyList = new ArrayList<Enemy>();
+		int currX =0;
+		int currY =0;
+		Board = new Tile[board.get(0).length()][board.size()];
+		for(String Row : board)
+		{
+			currY++;
+			for(char c : Row.toCharArray())
+			{
+				switch(c)
+				{
+					case '#':
+						Wall w = new Wall(currX,currY);
+						Board[currX][currY] = w;
+						break;
+					case '.':
+						Empty e = new Empty(currX,currY);
+						Board[currX][currY] = e;
+						break;
+					case '@':
+						this.p = p;
+						p.x=currX;
+						p.y=currY;
+						Board[currX][currY] = p;
+						break;
+					default:
+						Enemy enemy = EnemyFactory.Create(c);
+						enemy.x=currX;
+						enemy.y=currY;
+						Board[currX][currY] = enemy;
+						EnemyList.add(enemy);
+						break;
+				}
+				currX++;
+			}
+			currX = 0;
+		}
 	}
 	
 	public static Board setUp(List<String> board, player p)
