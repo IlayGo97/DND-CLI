@@ -72,7 +72,7 @@ public class Board {
 	public player getPlayer() {
 		return p;
 	}
-
+	
 	public ArrayList<Enemy> getAllEnemies()
 	{
 		return this.EnemyList;
