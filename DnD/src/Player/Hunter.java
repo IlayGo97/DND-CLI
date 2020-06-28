@@ -6,9 +6,9 @@ import enemies.Enemy;
 
 public class Hunter extends player {
 	
-	int range;
-	int arrowsCount;
-	int ticksCount;
+	public int range;
+	public int arrowsCount;
+	public int ticksCount;
 	
 	public Hunter(int x, int y, String name, int maxHP, int att, int def, int range)
 	{
@@ -30,7 +30,6 @@ public class Hunter extends player {
 
 	@Override
 	protected void ClassLevelup() {
-		PlayerLevel++;
 		arrowsCount += 10 * PlayerLevel;
 		attackPoints += 2 * PlayerLevel;
 		defensePoints +=  PlayerLevel;

@@ -3,21 +3,21 @@ package Player;
 import java.util.ArrayList;
 
 import enemies.Enemy;
+import misc.Pool;
 
 public class Mage extends player {
 	
-	int manaPool;
-	int currentMana;
-	int manaCost;
-	int spellPower;
-	int hitsCount;
-	int abilityRange;
+	private Pool mana;
+	public int manaCost;
+	public int spellPower;
+	public int hitsCount;
+	public int abilityRange;
 	
 	public Mage(int x, int y, String name, int maxHP, int att, int def, int manaPool, int manaCost, int spellPower, int hitsCount, int abilityRange)
 	{
 		super(x, y, name, maxHP, att, def);
-		this.manaPool = manaPool;
-		this.currentMana = manaPool/4;
+		this.mana = new Pool(manaPool);
+		mana.current = manaPool/4;
 		this.manaCost = manaCost;
 		this.spellPower = spellPower;
 		this.hitsCount = hitsCount;
@@ -26,24 +26,23 @@ public class Mage extends player {
 
 	@Override
 	public void Update() {
-		currentMana = Math.min(manaPool, currentMana + PlayerLevel);
+		mana.Add(PlayerLevel);
 	}
 
 	@Override
 	protected void ClassLevelup() {
-		PlayerLevel++;
-		manaPool += 25 * PlayerLevel;
-		currentMana = Math.min(currentMana + (manaPool)/4, manaPool);
+		mana.IncreaseMax(25 * PlayerLevel);
+		mana.IncreaseMax(mana.max/4);
 		spellPower += 10 * PlayerLevel;
 	}
 
 	@Override
 	public void SpecialAbility() // BLIZZARD
 	{
-		if(currentMana < manaCost)
+		if(mana.current < manaCost)
 			eh.HandleEvent(this.name+" didn't have enough mana to cast blizzard");
 		else {
-			currentMana -= manaCost;
+			mana.ReduceCurr(manaCost);
 			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, abilityRange);
 			int hits = 0;
 			while(hits < hitsCount & CloseEnemies.size() > 0) {

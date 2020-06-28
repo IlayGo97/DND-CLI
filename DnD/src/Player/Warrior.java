@@ -21,7 +21,6 @@ public class Warrior extends player {
 
 	@Override
 	protected void ClassLevelup() {
-		PlayerLevel++;
 		cooldown.Reset();
 		healthPool.IncreaseMax(5*this.PlayerLevel);
 		attackPoints = attackPoints+2*PlayerLevel;

@@ -21,12 +21,12 @@ public class Trap extends Enemy {
 	@Override
 	public void Update() {
 		ticksCount++;
-		if(visible & ticksCount >= visibilityTime)
+		if(visible & ticksCount > visibilityTime)
 		{
 			visible = false;
 			ticksCount = 0;
 		}
-		if(!visible & ticksCount>= invisibilityTime)
+		if(!visible & ticksCount> invisibilityTime)
 		{
 			visible = true;
 			ticksCount = 0;

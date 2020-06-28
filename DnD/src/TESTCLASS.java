@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 import General.Board;
 import General.GameManager;
 import Player.Warrior;

@@ -23,7 +23,6 @@ public class Rogue extends player {
 	
 	@Override
 	protected void ClassLevelup() {
-		PlayerLevel++;
 		currentEnergy = 100;
 		attackPoints += 3 * PlayerLevel;
 	}
