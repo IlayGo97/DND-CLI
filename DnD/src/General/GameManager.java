@@ -10,7 +10,7 @@ import enemies.Enemy;
 public class GameManager implements Observable {
 	
 	final ArrayList<Observer> Observers = new ArrayList<Observer>();
-	private player p;
+	public player p;
 	private List<List<String>> AllLevels;
 	public static Warrior Jonsnow = new Warrior(0, 0, "Jon Snow", 300 , 30, 4,3);
 	public static Warrior TheHound =  new Warrior(0,0,"The Hound",400,20,6,5);
