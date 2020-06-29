@@ -27,16 +27,19 @@ public abstract class player extends Unit
 	
 	public void Levelup()
 	{
+		int oldDef = this.defensePoints;
+		int oldAttack = this.attackPoints;
+		int oldMaxhp = this.healthPool.max;
 		experience.Empty();
 		PlayerLevel++;
-		healthPool.IncreaseMax(healthPool.max+10*PlayerLevel);
+		healthPool.IncreaseMax(10*PlayerLevel);
 		healthPool.Fill();
 		this.attackPoints=attackPoints+4*PlayerLevel;
 		this.defensePoints=defensePoints+PlayerLevel;
-		ClassLevelup();
+		ClassLevelup(oldAttack, oldDef, oldMaxhp);
 	}
 	
-	protected abstract void ClassLevelup();
+	protected abstract void ClassLevelup(int att, int def, int maxhp);
 	
 	public void Interact(Tile t)
 	{

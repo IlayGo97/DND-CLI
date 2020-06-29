@@ -22,6 +22,7 @@ public class GameManager implements Observable {
 	public static List<player> playerList = new ArrayList<player>();
 	public boolean GameOngoing;
 	int currLevel;
+	
 	public GameManager(int playerType, List<String> FilePaths) throws Exception
 	{
 		AllLevels = new ArrayList<List<String>>();
@@ -99,7 +100,9 @@ public class GameManager implements Observable {
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			EventHandler.GetInstance().HandleEvent("You Won!");
+			EventHandler.GetInstance().HandleAllEvents();
+			GameOngoing = false;
 		}
 	}
 	

@@ -45,6 +45,7 @@ public class EnemyFactory {
 				break;
 			case 'D':
 				e = new Trap(0,0,"Death Trap",500,100,20,250,1,10,c);
+				break;
 			default:
 				throw new Exception("Unknown Enemy: "+Character.toString(c));
 		}
