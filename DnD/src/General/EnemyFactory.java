@@ -29,13 +29,13 @@ public class EnemyFactory {
 				e = new Monster(0, 0, "White Walker", 2000, 150, 50, 1000, 6, c);
 				break;
 			case 'M':
-				e = new Monster(0, 0, "The Mountain", 1000, 60, 25, 500, 6, c);
+				e = new Boss(0, 0, "The Mountain", 1000, 60, 25, 500, 6, c, 5);
 				break;
 			case 'C':
-				e = new Monster(0, 0, "Queen Cersei", 100, 10, 10, 1000, 1, c);
+				e = new Boss(0, 0, "Queen Cersei", 100, 10, 10, 1000, 1, c, 10);
 				break;
 			case 'K':
-				e = new Monster(0, 0, "Night’s King", 5000, 300, 150, 5000, 8, c);
+				e = new Boss(0, 0, "Night’s King", 5000, 300, 150, 5000, 8, c, 5);
 				break;
 			case 'B':
 				e = new Trap(0, 0, "Bonus Trap", 1, 1, 1, 250, 1, 5, c);

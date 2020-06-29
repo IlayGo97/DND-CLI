@@ -3,10 +3,11 @@ import TileType.Empty;
 import TileType.Tile;
 import TileType.Unit;
 import TileType.Wall;
+import TileType.HeroicUnit;
 import enemies.Enemy;
 import misc.*;
 
-public abstract class player extends Unit
+public abstract class player extends Unit implements HeroicUnit
 {
 	
 	protected Pool experience = new Pool(50);
@@ -83,9 +84,7 @@ public abstract class player extends Unit
 		eh.HandleEvent(e.name+" died. "+this.name+" gained "+e.experienceValue+" experience");
 		if(this.experience.Add(e.experienceValue))
 			this.Levelup();
-	}
-	
-	public abstract void SpecialAbility();
+	}	
 	
 	public void InteractRight()
 	{
