@@ -31,8 +31,9 @@ public class Mage extends player {
 	@Override
 	protected void ClassLevelup() {
 		mana.IncreaseMax(25 * PlayerLevel);
-		mana.IncreaseMax(mana.max/4);
+		mana.Add(mana.max/4);
 		spellPower += 10 * PlayerLevel;
+		eh.HandleEvent("                +"+25*PlayerLevel+" maximum mana, "+10*PlayerLevel+" spell power");
 	}
 	
 	@Override
