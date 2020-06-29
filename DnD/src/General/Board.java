@@ -90,10 +90,6 @@ public class Board {
 		return (int) Math.sqrt((t.x-e.x)*(t.x-e.x)+(t.y-e.y)*(t.y-e.y));
 	}
 	
-<<<<<<< HEAD
-	public player getPlayer() {
-		return p;
-=======
 	public Tile[] allTilesInRange(Tile t, int x)
 	{
 		Tile[] output = new Unit[(2*x+1)*(2*x+1)];
@@ -107,7 +103,6 @@ public class Board {
 			}
 		}
 		return output;
->>>>>>> ee4c64e094a691efcb2c2ff5fb0f32fdb243003e
 	}
 	
 	public ArrayList<Enemy> getAllEnemies()

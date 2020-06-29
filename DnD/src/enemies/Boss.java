@@ -11,7 +11,7 @@ public class Boss extends Monster implements HeroicUnit {
 		super(x, y, name, maxHP, att, def, exp, visionRange, Char);
 		abilityfrequency = new Resource(abilityfreq);
 	}
-
+	
 	@Override
 	public void SpecialAbility() {
 		if(!abilityfrequency.isAvailable())
