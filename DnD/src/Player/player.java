@@ -27,6 +27,7 @@ public abstract class player extends Unit
 	
 	public void Levelup()
 	{
+		experience.IncreaseMax(50);
 		int oldDef = this.defensePoints;
 		int oldAttack = this.attackPoints;
 		int oldMaxhp = this.healthPool.max;

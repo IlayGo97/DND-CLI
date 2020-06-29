@@ -14,7 +14,7 @@ public class Pool {
 	public Boolean Add(int amount) {
 		int oldcur = current;
 		current = Math.min(current+amount, max);
-		if(oldcur+amount>max)
+		if(oldcur+amount>=max)
 			return true; // if leveled
 		else return false;
 	}
