@@ -36,10 +36,11 @@ public abstract class player extends Unit
 		healthPool.Fill();
 		this.attackPoints=attackPoints+4*PlayerLevel;
 		this.defensePoints=defensePoints+PlayerLevel;
-		ClassLevelup(oldAttack, oldDef, oldMaxhp);
+		ClassLevelup();
+		eh.HandleEvent(this.name+" reached level "+this.PlayerLevel+": +"+(healthPool.max-oldMaxhp)+" Health, +"+(attackPoints-oldAttack)+" Attack, +"+(defensePoints-oldDef)+" Defense");
 	}
 	
-	protected abstract void ClassLevelup(int att, int def, int maxhp);
+	protected abstract void ClassLevelup();
 	
 	public void Interact(Tile t)
 	{
