@@ -105,10 +105,6 @@ public class Board {
 		return output;
 	}
 	
-	public player getPlayer() {
-		return p;
-	}
-	
 	public ArrayList<Enemy> getAllEnemies()
 	{
 		return this.EnemyList;
@@ -130,10 +126,10 @@ public class Board {
 		Board[t1.x][t1.y] = temp;
 		t1.x += t.x;
 		t.x = t1.x - t.x;
-		t1.x = t1.x - t.x;
+		t1.x -= t.x;
 		t1.y += t.y;
 		t.y = t1.y - t.y;
-		t1.y = t1.y - t.y;
+		t1.y -= t.y;
 	}
 	
 	public void KillEnemy(Enemy t)

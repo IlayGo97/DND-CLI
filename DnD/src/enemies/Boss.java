@@ -36,15 +36,15 @@ public class Boss extends Monster implements HeroicUnit {
 	{
 		if(healthPool.current <= 0)
 			return; // if dead do nothing
-		if(currBoard.Range(this, currBoard.getPlayer())<visionRange)
+		if(currBoard.Range(this, currBoard.p)<visionRange)
 		{
 			if(this.abilityfrequency.isAvailable())
 			{
 				this.SpecialAbility();
 				return;
 			}
-			int dx = currBoard.getPlayer().x-this.x;
-			int dy = currBoard.getPlayer().y-this.y;
+			int dx = currBoard.p.x-this.x;
+			int dy = currBoard.p.y-this.y;
 			if(Math.abs(dx)>Math.abs(dy))
 			{
 				if(dx>0)
