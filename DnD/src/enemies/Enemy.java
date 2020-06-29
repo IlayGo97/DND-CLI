@@ -28,9 +28,6 @@ public abstract class Enemy extends Unit
 	@Override
 	public void Visit(player p)
 	{
-		eh.HandleEvent(this.name + " engaged in combat with " + p.name + ".");
-		eh.HandleEvent(this.Describe());
-		eh.HandleEvent(p.Describe());
 		int attackroll = this.RollAttack();
 		int defenseroll = p.RollDefense();
 		int Damage = Math.max(0, attackroll-defenseroll);

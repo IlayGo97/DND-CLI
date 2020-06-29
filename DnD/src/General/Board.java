@@ -140,6 +140,7 @@ public class Board {
 	{
 		EnemyList.remove(t);
 		Board[t.x][t.y] = new Empty(t.x,t.y);
+		t.Char = '.';
 	}
 	
 	@Override

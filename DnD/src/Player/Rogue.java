@@ -33,6 +33,7 @@ public class Rogue extends player {
 		if(currentEnergy < cost)
 			eh.HandleEvent(this.name+" didn't have enough energy to cast fan of knives");
 		else {
+			eh.HandleEvent(this.name+" cast Fan of Knives.");
 			currentEnergy -= cost;
 			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, 2);
 			for(Enemy e : CloseEnemies) {

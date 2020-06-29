@@ -7,8 +7,8 @@ public class Resource {
 	
 	public Resource(int _maxcd)
 	{
-		coolDown = _maxcd;
-		remainingCoolDown = 0;
+		coolDown = 0;
+		remainingCoolDown = _maxcd;
 	}
 	
 	public boolean isAvailable()
