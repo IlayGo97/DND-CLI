@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import Player.*;
+import UIandMain.EventHandler;
 import enemies.Enemy;
 
 public class GameManager implements Observable {
@@ -20,6 +21,7 @@ public class GameManager implements Observable {
 	public static Hunter Ygritte = new Hunter(0,0,"Ygritte",220,30,2,6);
 	public static List<player> playerList = new ArrayList<player>();
 	public boolean GameOngoing;
+	int currLevel;
 	public GameManager(int playerType, List<String> FilePaths) throws Exception
 	{
 		AllLevels = new ArrayList<List<String>>();
@@ -40,6 +42,7 @@ public class GameManager implements Observable {
 		{
 			System.out.println("couldn't load levels: "+e.getMessage());
 		}
+		currLevel =0;
 		Board.setUp(AllLevels.get(0), p); //Loads first level
 		GameOngoing = true;
 		p.ReloadBoard();
@@ -72,12 +75,32 @@ public class GameManager implements Observable {
 	}
 	
 	@Override
-	public void notifyObservers() {
+	public void notifyObservers() {//game tick
 		for(Observer o: Observers)
 		{
 			o.Update();
 		}
 		GameOngoing = p.healthPool.current !=0;
+		if(Board.GetInstance().EnemyList.isEmpty())//load next level
+		{
+			AdvanceLevel();
+		}
+	}
+	
+	public void AdvanceLevel() {
+		currLevel++;
+		try {
+			Board.setUp(AllLevels.get(currLevel), p);
+			p.ReloadBoard();
+			for(Enemy e : Board.GetInstance().EnemyList)
+			{
+				addObserver(e);
+				e.ReloadBoard();
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void getUserInput(char input) {

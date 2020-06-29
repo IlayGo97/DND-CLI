@@ -16,6 +16,8 @@ public class Monster extends Enemy {
 	
 	public void Update()
 	{
+		if(healthPool.current<=0)
+			return; //if dead do nothing
 		if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
 		{
 			int dx = currBoard.getPlayer().x-this.x;

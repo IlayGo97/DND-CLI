@@ -20,6 +20,8 @@ public class Trap extends Enemy {
 	
 	@Override
 	public void Update() {
+		if(healthPool.current<=0)
+			return; //if dead do nothing
 		ticksCount++;
 		if(visible & ticksCount > visibilityTime)
 		{
