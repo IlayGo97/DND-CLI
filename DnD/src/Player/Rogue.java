@@ -1,14 +1,12 @@
 package Player;
 import java.util.ArrayList;
-
 import enemies.Enemy;
 import misc.Pool;
-import misc.Resource;
 
 public class Rogue extends player {
 	
-	int cost;
-	Pool Energy;
+	private int cost;
+	private Pool Energy;
 	
 	public Rogue(int x, int y, String name, int maxHP, int att, int def, int cost)
 	{

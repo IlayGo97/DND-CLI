@@ -5,7 +5,7 @@ import enemies.Enemy;
 
 public class Warrior extends player {
 	
-	Resource cooldown;
+	private Resource cooldown;
 	
 	public Warrior(int x, int y, String name, int maxHP, int att, int def, int cooldown)
 	{
