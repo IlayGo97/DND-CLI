@@ -45,11 +45,6 @@ public abstract class player extends Unit implements HeroicUnit
 	
 	protected abstract void ClassLevelup();
 	
-	public void Interact(Tile t)
-	{
-		t.Accept(this);
-	}
-	
 	@Override
 	public void Visit(Enemy e)
 	{
@@ -104,5 +99,10 @@ public abstract class player extends Unit implements HeroicUnit
 	public void InteractDown()
 	{
 		this.Interact(currBoard.GetTile(this.x+1, this.y));
+	}
+	
+	public void Interact(Tile t)
+	{
+		t.Accept(this);
 	}
 }
