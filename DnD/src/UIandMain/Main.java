@@ -15,6 +15,7 @@ import Player.player;
 public class Main {
 	public static void main(String[] args)
 	{
+		EventHandler eh = EventHandler.GetInstance();
 		System.out.println("Select player:");
 		int c = 1;
 		for (player p : GameManager.getPlayerList())
@@ -45,6 +46,8 @@ public class Main {
 		{
 			gm.getUserInput(inputScanner.next().charAt(0));
 			System.out.println(Board.GetInstance());
+			System.out.println(gm.p.Describe());
+			eh.HandleAllEvents();
 		}
 	}
 }

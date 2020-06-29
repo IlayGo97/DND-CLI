@@ -4,12 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import Player.*;
+import UIandMain.EventHandler;
 import enemies.Enemy;
 
 public class GameManager implements Observable {
 	
 	final ArrayList<Observer> Observers = new ArrayList<Observer>();
-	private player p;
+	public player p;
 	private List<List<String>> AllLevels;
 	public static Warrior Jonsnow = new Warrior(0, 0, "Jon Snow", 300 , 30, 4,3);
 	public static Warrior TheHound =  new Warrior(0,0,"The Hound",400,20,6,5);
@@ -42,6 +43,7 @@ public class GameManager implements Observable {
 		{
 			System.out.println("couldn't load levels: "+e.getMessage());
 		}
+		currLevel = 0;
 		Board.setUp(AllLevels.get(0), p); //Loads first level
 		GameOngoing = true;
 		p.ReloadBoard();
@@ -74,7 +76,7 @@ public class GameManager implements Observable {
 	}
 	
 	@Override
-	public void notifyObservers() {
+	public void notifyObservers() { //game tick
 		for(Observer o: Observers)
 		{
 			o.Update();

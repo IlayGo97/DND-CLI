@@ -29,7 +29,7 @@ public class Warrior extends player {
 	@Override
 	public void SpecialAbility() // AVENGER'S SHIELD MURHAHA
 	{
-		if(cooldown.isAvailable())
+		if(!cooldown.isAvailable())
 			eh.HandleEvent(this.name+" couldn't cast avenger's shield");
 		else {
 			//heal first
