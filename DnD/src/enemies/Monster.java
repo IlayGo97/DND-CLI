@@ -16,18 +16,8 @@ public class Monster extends Enemy {
 	
 	public void Update()
 	{
-<<<<<<< HEAD
 		if(this.Char != '.') {
 			if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
-=======
-		if(healthPool.current<=0)
-			return; //if dead do nothing
-		if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
-		{
-			int dx = currBoard.getPlayer().x-this.x;
-			int dy = currBoard.getPlayer().y-this.y;
-			if(Math.abs(dx)>Math.abs(dy))
->>>>>>> branch 'master' of https://github.com/IlayGo97/DnD/
 			{
 				int dx = currBoard.getPlayer().x-this.x;
 				int dy = currBoard.getPlayer().y-this.y;
