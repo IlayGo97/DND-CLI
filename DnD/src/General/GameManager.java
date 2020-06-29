@@ -18,7 +18,7 @@ public class GameManager implements Observable {
 	public static Mage Thoros = new Mage(0,0,"Thoros of Myr",250,25,4,150,20,20,3,4);
 	public static Rogue Ariya = new Rogue(0,0,"Arya Stark",150,40,2,20);
 	public static Rogue Bronn = new Rogue(0,0,"Bronn",250,35,3,50);
-	public static Hunter Ygritte = new Hunter(0,0,"Ygritte",220,1000000,2,100000000);
+	public static Hunter Ygritte = new Hunter(0,0,"Ygritte",220,30,2,6);
 	public static List<player> playerList = new ArrayList<player>();
 	public boolean GameOngoing;
 	int currLevel;

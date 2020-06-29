@@ -19,8 +19,8 @@ public class Board {
 	private Board (List<String> board, player p) throws Exception
 	{
 		EnemyList = new ArrayList<Enemy>();
-		int currX =0;
-		int currY =0;
+		int currX = 0;
+		int currY = 0;
 		Board = new Tile[board.size()][board.get(0).length()];
 		for(String Row : board)
 		{
