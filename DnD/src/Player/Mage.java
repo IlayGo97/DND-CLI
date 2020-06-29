@@ -37,6 +37,23 @@ public class Mage extends player {
 	}
 	
 	@Override
+	public void Levelup() //Overriding because events are in different order.
+	{
+		experience.IncreaseMax(50);
+		int oldDef = this.defensePoints;
+		int oldAttack = this.attackPoints;
+		int oldMaxhp = this.healthPool.max;
+		experience.Empty();
+		PlayerLevel++;
+		healthPool.IncreaseMax(10*PlayerLevel);
+		healthPool.Fill();
+		this.attackPoints=attackPoints+4*PlayerLevel;
+		this.defensePoints=defensePoints+PlayerLevel;
+		eh.HandleEvent(this.name+" reached level "+this.PlayerLevel+": +"+(healthPool.max-oldMaxhp)+" Health, +"+(attackPoints-oldAttack)+" Attack, +"+(defensePoints-oldDef)+" Defense");
+		ClassLevelup();
+	}
+	
+	@Override
 	public void SpecialAbility() // BLIZZARD
 	{
 		if(mana.current < manaCost)

@@ -46,9 +46,9 @@ public class Main {
 		while(gm.GameOngoing)
 		{
 			gm.getUserInput(inputScanner.next().charAt(0));
+			eh.HandleAllEvents();
 			System.out.println(Board.GetInstance());
 			System.out.println(gm.p.Describe());
-			eh.HandleAllEvents();
 		}
 	}
 }

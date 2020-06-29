@@ -15,6 +15,7 @@ public abstract class player extends Unit
 	public player(int x, int y, String name, int maxHP, int att, int def)
 	{
 		super(x, y, name, maxHP, att, def);
+		experience.Empty();
 		Char = '@';
 		PlayerLevel = 1;
 	}

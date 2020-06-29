@@ -24,6 +24,6 @@ public class Resource {
 	
 	public void Reset()
 	{
-		remainingCoolDown=coolDown;
+		remainingCoolDown = coolDown + 1;
 	}
 }

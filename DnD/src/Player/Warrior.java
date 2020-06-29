@@ -54,6 +54,6 @@ public class Warrior extends player {
 	
 	@Override
 	public String Describe() {
-		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Level: "+this.PlayerLevel+"		Experience: "+this.experience.current+"/"+this.experience.max+"		Cooldown: "+this.cooldown.coolDown+"/"+this.cooldown.remainingCoolDown;
+		return this.name+"	Health: "+this.healthPool.current+"/"+this.healthPool.max+"		Attack: "+this.attackPoints+"		Defense: "+this.defensePoints+"		Level: "+this.PlayerLevel+"		Experience: "+this.experience.current+"/"+this.experience.max+"		Cooldown: "+this.cooldown.remainingCoolDown+"/"+this.cooldown.coolDown;
 	}
 }

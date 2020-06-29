@@ -23,12 +23,12 @@ public class Trap extends Enemy {
 		if(healthPool.current <= 0)
 			return; // if dead do nothing
 		ticksCount++;
-		if(visible & ticksCount > visibilityTime)
+		if(visible & ticksCount >= visibilityTime)
 		{
 			visible = false;
 			ticksCount = 0;
 		}
-		if(!visible & ticksCount > invisibilityTime)
+		if(!visible & ticksCount >= invisibilityTime)
 		{
 			visible = true;
 			ticksCount = 0;
