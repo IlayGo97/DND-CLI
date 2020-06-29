@@ -38,13 +38,13 @@ public class EnemyFactory {
 				e = new Monster(0, 0, "Night’s King", 5000, 300, 150, 5000, 8, c);
 				break;
 			case 'B':
-				e = new Trap(0,0,"Bonus Trap",  1 , 1,1, 250 ,1 ,5, c);
+				e = new Trap(0, 0, "Bonus Trap", 1, 1, 1, 250, 1, 5, c);
 				break;
 			case 'Q':
-				e = new Trap(0,0,"Queen's Trap",250,50,10,100,3,7,c);
+				e = new Trap(0, 0, "Queen's Trap", 250, 50, 10, 100, 3, 7, c);
 				break;
 			case 'D':
-				e = new Trap(0,0,"Death Trap",500,100,20,250,1,10,c);
+				e = new Trap(0, 0, "Death Trap", 500, 100, 20, 250, 1, 10, c);
 				break;
 			default:
 				throw new Exception("Unknown Enemy: "+Character.toString(c));
