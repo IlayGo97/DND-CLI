@@ -33,7 +33,7 @@ public abstract class Enemy extends Unit
 		eh.HandleEvent(p.Describe());
 		int attackroll = this.RollAttack();
 		int defenseroll = p.RollDefense();
-		int Damage = Math.max(0, attackroll-defenseroll);
+		int Damage = Math.max(0, attackroll - defenseroll);
 		eh.HandleEvent(name+" dealt "+Damage+" to "+p.name);
 		if(p.healthPool.ReduceCurr(Damage))
 		{
