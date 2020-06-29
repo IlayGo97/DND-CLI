@@ -90,21 +90,6 @@ public class Board {
 		return (int) Math.sqrt((t.x-e.x)*(t.x-e.x)+(t.y-e.y)*(t.y-e.y));
 	}
 	
-	public Tile[] allTilesInRange(Tile t, int x)
-	{
-		Tile[] output = new Unit[(2*x+1)*(2*x+1)];
-		int counter = 0;
-		for(int x1 = Math.max(0, t.x-x); x1<=Math.min(Board[0].length,t.x+x);x1++)
-		{
-			for(int y1 = Math.max(0, t.y-x); y1<=Math.min(Board.length,t.y+x);y1++)
-			{
-				output[counter] = Board[x1][y1];
-				counter++;
-			}
-		}
-		return output;
-	}
-	
 	public ArrayList<Enemy> getAllEnemies()
 	{
 		return this.EnemyList;
