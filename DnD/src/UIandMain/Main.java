@@ -41,6 +41,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		System.out.println(Board.GetInstance());
+		System.out.println(gm.p.Describe());
 		Scanner inputScanner  = new Scanner(System.in);
 		while(gm.GameOngoing)
 		{
