@@ -16,38 +16,38 @@ public class Monster extends Enemy {
 	
 	public void Update()
 	{
-		if(healthPool.current <= 0)
-			return; // if dead do nothing
-		if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
-		{
-			int dx = currBoard.getPlayer().x-this.x;
-			int dy = currBoard.getPlayer().y-this.y;
-			if(Math.abs(dx)>Math.abs(dy))
+		if(this.Char != '.') {
+			if(currBoard.Range(this, currBoard.getPlayer())<=visionRange)
 			{
-				if(dx>0)
-					Interact(currBoard.GetTile(this.x+1, this.y));
+				int dx = currBoard.getPlayer().x-this.x;
+				int dy = currBoard.getPlayer().y-this.y;
+				if(Math.abs(dx)>Math.abs(dy))
+				{
+					if(dx>0)
+						Interact(currBoard.GetTile(this.x+1, this.y));
+					else
+						Interact(currBoard.GetTile(this.x-1, this.y));
+				}
 				else
-					Interact(currBoard.GetTile(this.x-1, this.y));
+				{
+					if(dy>0)
+						Interact(currBoard.GetTile(this.x, this.y+1));
+					else
+						Interact(currBoard.GetTile(this.x, this.y-1));
+				}
 			}
 			else
 			{
-				if(dy>0)
+				int r = (int)(Math.random()*100);
+				if (r<=20)
+					Interact(currBoard.GetTile(this.x+1, this.y));
+				else if (r<=40)
+					Interact(currBoard.GetTile(this.x-1, this.y));
+				else if (r<=60)
 					Interact(currBoard.GetTile(this.x, this.y+1));
-				else
+				else if (r<=80)
 					Interact(currBoard.GetTile(this.x, this.y-1));
 			}
-		}
-		else
-		{
-			int r = (int)(Math.random()*100);
-			if (r<=20)
-				Interact(currBoard.GetTile(this.x+1, this.y));
-			else if (r<=40)
-				Interact(currBoard.GetTile(this.x-1, this.y));
-			else if (r<=60)
-				Interact(currBoard.GetTile(this.x, this.y+1));
-			else if (r<=80)
-				Interact(currBoard.GetTile(this.x, this.y-1));
 		}
 	}
 	

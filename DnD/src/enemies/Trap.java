@@ -20,21 +20,21 @@ public class Trap extends Enemy {
 	
 	@Override
 	public void Update() {
-		if(healthPool.current <= 0)
-			return; // if dead do nothing
-		ticksCount++;
-		if(visible & ticksCount > visibilityTime)
-		{
-			visible = false;
-			ticksCount = 0;
+		if(this.Char != '.') {
+			ticksCount++;
+			if(visible & ticksCount > visibilityTime)
+			{
+				visible = false;
+				ticksCount = 0;
+			}
+			if(!visible & ticksCount > invisibilityTime)
+			{
+				visible = true;
+				ticksCount = 0;
+			}
+			if(currBoard.Range(this, currBoard.getPlayer())<2)
+				this.Visit(currBoard.getPlayer());
 		}
-		if(!visible & ticksCount > invisibilityTime)
-		{
-			visible = true;
-			ticksCount = 0;
-		}
-		if(currBoard.Range(this, currBoard.getPlayer())<2)
-			this.Visit(currBoard.getPlayer());
 	}
 	
 	@Override
