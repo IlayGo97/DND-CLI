@@ -40,13 +40,14 @@ public class Hunter extends player {
 			eh.HandleEvent(this.name+" didn't have enough arrows to cast shoot");
 		else {
 			if(currBoard.getAllCloseEnemies(this, range).isEmpty())
-				eh.HandleEvent("there are not any enemies in "+this.name+" range");
+				eh.HandleEvent(this.name+" tried to shoot an arrow but there were no enemies in range.");
 			else {
 				arrowsCount--;
 				for(int min=1;min<=range;min++) {
 					ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, min);
 					if(!CloseEnemies.isEmpty()) {
 						Enemy closest = CloseEnemies.get(0);
+						eh.HandleEvent(this.name+" fired an arrow at "+closest.name);
 						int DamageDone = this.attackPoints - closest.RollDefense();
 						if(DamageDone < 0)
 							DamageDone = 0;

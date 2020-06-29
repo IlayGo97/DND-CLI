@@ -41,6 +41,7 @@ public class Mage extends player {
 		if(mana.current < manaCost)
 			eh.HandleEvent(this.name+" didn't have enough mana to cast blizzard");
 		else {
+			eh.HandleEvent(this.name+" cast Blizzard.");
 			mana.ReduceCurr(manaCost);
 			ArrayList<Enemy> CloseEnemies = currBoard.getAllCloseEnemies(this, abilityRange);
 			int hits = 0;
