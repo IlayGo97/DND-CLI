@@ -48,6 +48,7 @@ public class Warrior extends player {
 				if (killed)
 					Slay(Hit);
 			}
+			cooldown.Reset();
 		}
 	}
 	

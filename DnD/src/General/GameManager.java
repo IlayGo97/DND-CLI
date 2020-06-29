@@ -44,7 +44,7 @@ public class GameManager implements Observable {
 			System.out.println("couldn't load levels: "+e.getMessage());
 		}
 		currLevel = 0;
-		Board.setUp(AllLevels.get(0), p); //Loads first level
+		Board.setUp(AllLevels.get(0), p); // Loads first level
 		GameOngoing = true;
 		p.ReloadBoard();
 		addObserver(p);
@@ -76,13 +76,13 @@ public class GameManager implements Observable {
 	}
 	
 	@Override
-	public void notifyObservers() { //game tick
+	public void notifyObservers() { // game tick
 		for(Observer o: Observers)
 		{
 			o.Update();
 		}
-		GameOngoing = p.healthPool.current !=0;
-		if(Board.GetInstance().EnemyList.isEmpty())//load next level
+		GameOngoing = p.healthPool.current != 0;
+		if(Board.GetInstance().EnemyList.isEmpty()) // load next level
 		{
 			AdvanceLevel();
 		}
@@ -90,7 +90,8 @@ public class GameManager implements Observable {
 	
 	public void AdvanceLevel() {
 		currLevel++;
-		try {
+		try
+		{
 			Board.setUp(AllLevels.get(currLevel), p);
 			p.ReloadBoard();
 			for(Enemy e : Board.GetInstance().EnemyList)
@@ -98,8 +99,9 @@ public class GameManager implements Observable {
 				addObserver(e);
 				e.ReloadBoard();
 			}
-			
-		} catch (Exception e) {
+		}
+		catch (Exception e)
+		{
 			EventHandler.GetInstance().HandleEvent("You Won!");
 			EventHandler.GetInstance().HandleAllEvents();
 			GameOngoing = false;
