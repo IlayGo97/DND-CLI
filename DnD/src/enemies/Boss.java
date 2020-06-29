@@ -4,7 +4,9 @@ import TileType.HeroicUnit;
 import misc.Resource;
 
 public class Boss extends Monster implements HeroicUnit {
+	
 	Resource abilityfrequency;
+	
 	public Boss(int x, int y, String name, int maxHP, int att, int def, int exp, int visionRange, char Char, int abilityfreq) {
 		super(x, y, name, maxHP, att, def, exp, visionRange, Char);
 		abilityfrequency = new Resource(abilityfreq);
@@ -28,7 +30,6 @@ public class Boss extends Monster implements HeroicUnit {
 			}
 			abilityfrequency.Reset();
 		}
-		
 	}
 	
 	@Override

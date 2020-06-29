@@ -14,6 +14,7 @@ public class Monster extends Enemy {
 		this.Char = Char;
 	}
 	
+	@Override
 	public void Update()
 	{
 		if(healthPool.current <= 0)
