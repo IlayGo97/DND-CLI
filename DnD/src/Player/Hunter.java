@@ -4,9 +4,9 @@ import enemies.Enemy;
 
 public class Hunter extends player {
 	
-	public int range;
-	public int arrowsCount;
-	public int ticksCount;
+	private int range;
+	private int arrowsCount;
+	private int ticksCount;
 	
 	public Hunter(int x, int y, String name, int maxHP, int att, int def, int range)
 	{

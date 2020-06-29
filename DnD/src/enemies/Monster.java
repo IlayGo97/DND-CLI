@@ -14,14 +14,15 @@ public class Monster extends Enemy {
 		this.Char = Char;
 	}
 	
+	@Override
 	public void Update()
 	{
 		if(healthPool.current <= 0)
 			return; // if dead do nothing
-		if(currBoard.Range(this, currBoard.getPlayer())<visionRange)
+		if(currBoard.Range(this, currBoard.p)<visionRange)
 		{
-			int dx = currBoard.getPlayer().x-this.x;
-			int dy = currBoard.getPlayer().y-this.y;
+			int dx = currBoard.p.x-this.x;
+			int dy = currBoard.p.y-this.y;
 			if(Math.abs(dx)>Math.abs(dy))
 			{
 				if(dx>0)

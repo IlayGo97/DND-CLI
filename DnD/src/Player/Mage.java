@@ -1,16 +1,15 @@
 package Player;
 import java.util.ArrayList;
-
 import enemies.Enemy;
 import misc.Pool;
 
 public class Mage extends player {
 	
 	private Pool mana;
-	public int manaCost;
-	public int spellPower;
-	public int hitsCount;
-	public int abilityRange;
+	private int manaCost;
+	private int spellPower;
+	private int hitsCount;
+	private int abilityRange;
 	
 	public Mage(int x, int y, String name, int maxHP, int att, int def, int manaPool, int manaCost, int spellPower, int hitsCount, int abilityRange)
 	{

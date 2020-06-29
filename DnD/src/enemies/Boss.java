@@ -4,7 +4,9 @@ import TileType.HeroicUnit;
 import misc.Resource;
 
 public class Boss extends Monster implements HeroicUnit {
+	
 	Resource abilityfrequency;
+	
 	public Boss(int x, int y, String name, int maxHP, int att, int def, int exp, int visionRange, char Char, int abilityfreq) {
 		super(x, y, name, maxHP, att, def, exp, visionRange, Char);
 		abilityfrequency = new Resource(abilityfreq);
@@ -28,7 +30,6 @@ public class Boss extends Monster implements HeroicUnit {
 			}
 			abilityfrequency.Reset();
 		}
-		
 	}
 	
 	@Override
@@ -36,15 +37,15 @@ public class Boss extends Monster implements HeroicUnit {
 	{
 		if(healthPool.current <= 0)
 			return; // if dead do nothing
-		if(currBoard.Range(this, currBoard.getPlayer())<visionRange)
+		if(currBoard.Range(this, currBoard.p)<visionRange)
 		{
 			if(this.abilityfrequency.isAvailable())
 			{
 				this.SpecialAbility();
 				return;
 			}
-			int dx = currBoard.getPlayer().x-this.x;
-			int dy = currBoard.getPlayer().y-this.y;
+			int dx = currBoard.p.x-this.x;
+			int dy = currBoard.p.y-this.y;
 			if(Math.abs(dx)>Math.abs(dy))
 			{
 				if(dx>0)
