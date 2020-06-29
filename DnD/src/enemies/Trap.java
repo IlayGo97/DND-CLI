@@ -20,6 +20,7 @@ public class Trap extends Enemy {
 	
 	@Override
 	public void Update() {
+<<<<<<< HEAD
 		if(this.Char != '.') {
 			ticksCount++;
 			if(visible & ticksCount > visibilityTime)
@@ -34,6 +35,15 @@ public class Trap extends Enemy {
 			}
 			if(currBoard.Range(this, currBoard.getPlayer())<2)
 				this.Visit(currBoard.getPlayer());
+=======
+		if(healthPool.current<=0)
+			return; //if dead do nothing
+		ticksCount++;
+		if(visible & ticksCount > visibilityTime)
+		{
+			visible = false;
+			ticksCount = 0;
+>>>>>>> branch 'master' of https://github.com/IlayGo97/DnD/
 		}
 	}
 	
